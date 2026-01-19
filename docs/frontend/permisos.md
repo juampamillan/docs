@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 sidebar_label: Sistema de Permisos
+authors: pablomillansotelo
+tags: [frontend]
 ---
 
 # Sistema de Permisos en el Frontend

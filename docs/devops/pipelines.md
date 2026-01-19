@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 sidebar_label: Pipelines CI/CD
+authors: pablomillansotelo
+tags: [devops]
 ---
 
 # Pipelines de CI/CD

@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 sidebar_label: Arquitectura de Microfrontends
+title: Arquitectura de Microfrontends
+authors: pablomillansotelo
+tags: [frontend, microfrontends]
 ---
 
 # Arquitectura de Microfrontends

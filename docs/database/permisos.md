@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 sidebar_label: Gestión de Permisos
+authors: pablomillansotelo
+tags: [database]
 ---
 
 # Gestión de Permisos en PostgreSQL

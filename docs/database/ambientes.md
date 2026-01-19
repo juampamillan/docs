@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 sidebar_label: Especificaciones por Ambiente
+authors: pablomillansotelo
+tags: [database]
 ---
 
 # Especificaciones por Ambiente

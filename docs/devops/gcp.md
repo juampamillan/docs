@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 sidebar_label: Despliegue en GCP
+authors: pablomillansotelo
+tags: [devops]
 ---
 
 # Despliegue en Google Cloud Platform

@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 sidebar_label: Convención de Nombres
+authors: pablomillansotelo
+tags: [database]
 ---
 
 # Convención de Nombres para Base de Datos

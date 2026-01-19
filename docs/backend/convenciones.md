@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 sidebar_label: Convenciones de Nomenclatura
+authors: pablomillansotelo
+tags: [backend]
 ---
 
 # Convenciones de Nomenclatura

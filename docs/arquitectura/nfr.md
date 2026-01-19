@@ -1,6 +1,8 @@
 ---
 sidebar_position: 4
 sidebar_label: Requisitos No Funcionales (NFRs)
+authors: pablomillansotelo
+tags: [arquitectura]
 ---
 
 # Requisitos No Funcionales (NFRs)

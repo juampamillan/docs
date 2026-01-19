@@ -1,6 +1,8 @@
 ---
 sidebar_position: 5
 sidebar_label: Stack Tecnológico GCP
+authors: pablomillansotelo
+tags: [arquitectura]
 ---
 
 # Stack Tecnológico en Google Cloud Platform

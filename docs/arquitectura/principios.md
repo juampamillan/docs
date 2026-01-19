@@ -1,6 +1,8 @@
 ---
 sidebar_position: 2
 sidebar_label: Principios de Diseño
+authors: pablomillansotelo
+tags: [arquitectura]
 ---
 
 # Principios de Diseño Arquitectónico

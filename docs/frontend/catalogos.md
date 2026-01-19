@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 sidebar_label: Guía de Catálogos (CRUD)
+authors: pablomillansotelo
+tags: [frontend]
 ---
 
 # Guía para la Creación de Catálogos (CRUD)

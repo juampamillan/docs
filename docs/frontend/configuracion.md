@@ -1,6 +1,8 @@
 ---
 sidebar_position: 5
 sidebar_label: Configuración Unificada
+authors: pablomillansotelo
+tags: [frontend]
 ---
 
 # Configuración Unificada del Frontend

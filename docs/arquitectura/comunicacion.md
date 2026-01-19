@@ -1,6 +1,8 @@
 ---
 sidebar_position: 3
 sidebar_label: Comunicación entre Servicios
+authors: pablomillansotelo
+tags: [arquitectura]
 ---
 
 # Comunicación entre Servicios
