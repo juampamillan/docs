@@ -1,30 +1,264 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Docusaurus/Infima overrides to match Shadcn */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Core Typography */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-heading-font-weight: 600;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.6;
+
+  /* Spacing & Layout */
+  --ifm-navbar-height: 3.5rem;
+  --ifm-navbar-padding-vertical: 0.5rem;
+  --ifm-navbar-padding-horizontal: 1.5rem;
+  --ifm-spacing-horizontal: 1.5rem;
+  
+  /* Shadcn Light Theme (Zinc) */
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 240 10% 3.9%;
+  --radius: 0.5rem;
+
+  /* Docusaurus Mappings to Shadcn Variables */
+  --ifm-color-primary: hsl(var(--primary));
+  --ifm-color-primary-dark: hsl(240 5.9% 15%);
+  --ifm-color-primary-darker: hsl(240 5.9% 20%);
+  --ifm-color-primary-darkest: hsl(240 5.9% 30%);
+  --ifm-color-primary-light: hsl(240 5.9% 15%);
+  --ifm-color-primary-lighter: hsl(240 5.9% 20%);
+  --ifm-color-primary-lightest: hsl(240 5.9% 30%);
+  
+  --ifm-background-color: hsl(var(--background));
+  --ifm-navbar-background-color: hsl(var(--background));
+  --ifm-footer-background-color: hsl(var(--background));
+  --ifm-color-content: hsl(var(--foreground));
+  --ifm-link-color: hsl(var(--foreground));
+  --ifm-link-decoration: underline;
+  --ifm-toc-border-color: hsl(var(--border));
+  
+  /* Admonitions (Callouts) - Light Mode */
+  --ifm-color-info: hsl(221.2 83.2% 53.3%);
+  --ifm-color-success: hsl(142.1 76.2% 36.3%);
+  --ifm-color-warning: hsl(47.9 95.8% 53.1%);
+  --ifm-color-danger: hsl(346.8 77.2% 49.8%);
+  
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Shadcn Dark Theme (Zinc) */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+
+  /* Docusaurus Mappings Dark */
+  --ifm-color-primary: hsl(var(--primary));
+  --ifm-color-primary-dark: hsl(0 0% 90%);
+  --ifm-color-primary-darker: hsl(0 0% 85%);
+  --ifm-color-primary-darkest: hsl(0 0% 75%);
+  --ifm-color-primary-light: hsl(0 0% 90%);
+  --ifm-color-primary-lighter: hsl(0 0% 95%);
+  --ifm-color-primary-lightest: hsl(0 0% 98%);
+
+  --ifm-background-color: hsl(var(--background));
+  --ifm-navbar-background-color: hsl(var(--background));
+  --ifm-footer-background-color: hsl(var(--background));
+  --ifm-color-content: hsl(var(--foreground));
+  --ifm-link-color: hsl(var(--foreground));
+  
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* --- Layout Components --- */
+
+/* Navbar */
+.navbar {
+  border-bottom: none;
+  box-shadow: none;
+}
+.navbar__item,
+.navbar__link {
+  @apply text-sm font-medium text-muted-foreground transition-colors hover:text-primary;
+  text-decoration: none !important;
+}
+.navbar__link--active {
+  @apply text-primary font-semibold;
+  text-decoration: none !important;
+}
+.navbar__brand {
+  @apply font-bold tracking-tight text-primary;
+  text-decoration: none !important;
+}
+.navbar__brand:hover {
+  text-decoration: none !important;
+}
+
+.navbar-divider {
+  width: 1px;
+  height: 24px;
+  background-color: hsl(var(--border));
+  margin: 0 1rem;
+}
+
+.header-github-link::before,
+.header-linkedin-link::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.header-github-link::before {
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+}
+
+.header-linkedin-link::before {
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+}
+
+/* Sidebar */
+.theme-doc-sidebar-container {
+  border-right: 1px solid hsl(var(--border)) !important;
+}
+.menu__list-item-collapsed .menu__link--sublist:after {
+  /* Minimal chevron adjustment could go here */
+}
+.menu__link {
+  @apply text-sm font-medium text-muted-foreground transition-colors;
+  border-radius: var(--radius) !important;
+}
+.menu__link:hover {
+  @apply bg-accent text-accent-foreground;
+}
+.menu__link--active {
+  @apply bg-secondary text-secondary-foreground font-semibold;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Content Area */
+.main-wrapper {
+  /* Ensure background matches */
+  background-color: hsl(var(--background));
+}
+.container {
+  /* Constrain width for readability if needed, typically Docusaurus handles this well */
+}
+article header h1 {
+  @apply scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl mb-6;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  @apply scroll-m-20 tracking-tight text-primary;
+}
+h2 {
+  @apply border-b pb-2 text-3xl font-semibold transition-colors first:mt-0;
+}
+h3 {
+  @apply text-2xl font-semibold;
+}
+p {
+  @apply leading-7 [&:not(:first-child)]:mt-6;
+}
+ul {
+  @apply my-6 ml-6 list-disc [&>li]:mt-2;
+}
+code {
+  @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold text-foreground;
+  border: 1px solid hsl(var(--border));
+}
+
+/* Admonitions (Callouts) */
+.alert {
+  border: 1px solid hsl(var(--border));
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  background-color: hsl(var(--background)); /* Cleaner background */
+  @apply shadow-sm;
+}
+.alert--info {
+  border-left-color: var(--ifm-color-info);
+  /* Optional: faint tint background */
+}
+.alert--success {
+  border-left-color: var(--ifm-color-success);
+}
+.alert--warning {
+  border-left-color: var(--ifm-color-warning);
+}
+.alert--danger {
+  border-left-color: var(--ifm-color-danger);
+}
+
+/* Code Blocks */
+[class^='codeBlockContainer'] {
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--border));
+  box-shadow: none !important;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid hsl(var(--border));
+  background-color: hsl(var(--background));
+}
+.footer__title {
+  @apply font-semibold text-foreground;
+}
+.footer__link-item {
+  @apply text-muted-foreground hover:text-primary hover:underline;
 }
