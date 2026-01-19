@@ -2,46 +2,29 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introducción
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Este portal documenta las **mejores prácticas de ingeniería de software** que hemos implementado en proyectos de producción a gran escala. Aquí encontrarás guías técnicas para construir sistemas modernos, mantenibles y escalables.
 
-## Getting Started
+## Filosofía
 
-Get started by **creating a new site**.
+Nuestro enfoque se basa en:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1.  **Microservicios Desacoplados**: Sistemas autónomos que evolucionan de forma independiente.
+2.  **Clean Architecture**: Separación estricta de lógica de negocio e infraestructura.
+3.  **Microfrontends**: Interfaces de usuario modulares con despliegue independiente.
+4.  **Cloud Native**: Aprovechamiento de servicios gestionados de GCP para maximizar disponibilidad y reducir complejidad operativa.
 
-### What you'll need
+## Contenido
 
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Explora las siguientes secciones:
 
-## Generate a new site
+- **[Arquitectura](/docs/arquitectura/intro)**: Principios de diseño, stack tecnológico y patrones de comunicación.
+- **[Backend](/docs/backend/intro)**: Estándares de APIs, DTOs y Clean Architecture con Python/FastAPI.
+- **[Frontend](/docs/frontend/intro)**: Microfrontends con React y Module Federation.
+- **[DevOps](/docs/devops/intro)**: CI/CD, Gitflow y despliegue en Google Cloud.
+- **[Database](/docs/database/intro)**: PostgreSQL gestionado con Cloud SQL.
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+:::tip ¿Por dónde empezar?
+Si eres nuevo en el proyecto, te recomendamos comenzar por la sección de **[Arquitectura](/docs/arquitectura/intro)** para entender la visión general del sistema.
+:::

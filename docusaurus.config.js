@@ -12,7 +12,7 @@ const config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.png",
 
   // GitHub pages deployment config.
   organizationName: "juampamillan",
@@ -74,10 +74,34 @@ const config = {
         title: "juampamillan.docs",
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
+            type: 'docSidebar',
+            sidebarId: 'arquitecturaSidebar',
             position: 'right',
-            label: 'Tutorial',
+            label: 'Arquitectura',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'frontendSidebar',
+            position: 'right',
+            label: 'Frontend',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'backendSidebar',
+            position: 'right',
+            label: 'Backend',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'devopsSidebar',
+            position: 'right',
+            label: 'DevOps',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'databaseSidebar',
+            position: 'right',
+            label: 'Database',
           },
           {
             type: "html",
@@ -100,35 +124,7 @@ const config = {
       },
       footer: {
         style: "light", // Use light style to avoid hardcoded dark backgrounds, we control it via CSS Zinc variables
-        links: [
-          {
-            title: "Resources",
-            items: [
-              {
-                label: "Introduction",
-                to: "/docs/intro",
-              },
-              {
-                label: "Guides",
-                to: "/docs/intro", // Pointing to intro for now as generic docs link
-              },
-            ],
-          },
-          {
-            title: "Network",
-            items: [
-              {
-                label: "Main Site",
-                href: "https://juampamillan.com",
-              },
-              {
-                label: "GitHub",
-                href: "https://github.com/juampamillan",
-              },
-            ],
-          },
-        ],
-        copyright: `© ${new Date().getFullYear()} JuampaMillan. Construido con Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Juampa Millan. Construido con Docusaurus, React & Tailwind.`,
       },
       prism: {
         theme: lightCodeTheme,

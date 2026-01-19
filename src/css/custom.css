@@ -254,11 +254,14 @@ code {
 /* Footer */
 .footer {
   border-top: 1px solid hsl(var(--border));
-  background-color: hsl(var(--background));
+  background-color: transparent;
+  padding: 2rem 0;
+  @apply text-sm text-muted-foreground;
 }
 .footer__title {
   @apply font-semibold text-foreground;
 }
 .footer__link-item {
-  @apply text-muted-foreground hover:text-primary hover:underline;
+  @apply text-muted-foreground hover:text-primary transition-colors;
+  text-decoration: none !important;
 }

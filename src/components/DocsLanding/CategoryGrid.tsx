@@ -4,40 +4,34 @@ import { BookOpen, Cpu, Layers, Settings, Terminal, Zap } from "lucide-react";
 
 const categories = [
   {
-    title: "Getting Started",
-    description: "Learn the fundamentals and get your environment set up in minutes.",
-    to: "/docs/intro",
-    icon: Zap,
-  },
-  {
-    title: "Core Concepts",
-    description: "Deep dive into the mental models and core principles of the system.",
-    to: "/docs/intro",
-    icon: BookOpen,
-  },
-  {
-    title: "Architecture",
-    description: "Understand how the internals work and how components communicate.",
-    to: "/docs/intro",
+    title: "Arquitectura",
+    description: "Principios de diseño, stack tecnológico y patrones de comunicación.",
+    to: "/docs/arquitectura/intro",
     icon: Layers,
   },
   {
-    title: "Guides",
-    description: "Step-by-step instructions for common tasks and real-world scenarios.",
-    to: "/docs/intro",
+    title: "Frontend",
+    description: "Microfrontends con React, Module Federation y buenas prácticas de UI.",
+    to: "/docs/frontend/intro",
+    icon: Zap,
+  },
+  {
+    title: "Backend",
+    description: "APIs con FastAPI, Clean Architecture y estándares de DTOs.",
+    to: "/docs/backend/intro",
+    icon: BookOpen,
+  },
+  {
+    title: "Base de Datos",
+    description: "PostgreSQL en Cloud SQL, permisos y convenciones de nomenclatura.",
+    to: "/docs/database/intro",
+    icon: Layers,
+  },
+  {
+    title: "DevOps",
+    description: "CI/CD, Gitflow, Cloud Run y despliegue automatizado.",
+    to: "/docs/devops/intro",
     icon: Terminal,
-  },
-  {
-    title: "Reference",
-    description: "Detailed API specifications, CLI commands, and configuration options.",
-    to: "/docs/intro",
-    icon: Settings,
-  },
-  {
-    title: "Performance",
-    description: "Optimization techniques and best practices for high-scale apps.",
-    to: "/docs/intro",
-    icon: Cpu,
   },
 ];
 
