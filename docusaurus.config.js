@@ -104,6 +104,12 @@ const config = {
             label: 'Database',
           },
           {
+            type: 'docSidebar',
+            sidebarId: 'gobernanzaSidebar',
+            position: 'right',
+            label: 'Gobernanza',
+          },
+          {
             type: "html",
             position: "right",
             value: '<div class="navbar-divider"></div>',

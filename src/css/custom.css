@@ -180,6 +180,7 @@
 .menu__link {
   @apply text-sm font-medium text-muted-foreground transition-colors;
   border-radius: var(--radius) !important;
+  text-decoration: none !important;
 }
 .menu__link:hover {
   @apply bg-accent text-accent-foreground;
