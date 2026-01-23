@@ -6,7 +6,7 @@ title: Principios arquitectónicos del sistema
 
 # Principios arquitectónicos del sistema
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento define los principios arquitectónicos que guían el diseño, evolución y toma de decisiones en un sistema de software.
 Los principios funcionan como restricciones conscientes, no como recetas ni soluciones concretas.
@@ -19,7 +19,7 @@ Su propósito es:
 
 Un principio arquitectónico no dice qué construir, sino cómo pensar cuando se construye.
 
-## 🧠 Qué es un principio arquitectónico
+## Qué es un principio arquitectónico
 
 Un principio arquitectónico es una regla de alto nivel que influye en múltiples decisiones técnicas.
 
@@ -36,7 +36,7 @@ Un principio arquitectónico es una regla de alto nivel que influye en múltiple
 
 Esto no define una tecnología, pero sí orienta cientos de decisiones pequeñas.
 
-### 🚫 Qué NO es un principio arquitectónico
+### Qué NO es un principio arquitectónico
 
 No es:
 
@@ -47,7 +47,7 @@ No es:
 
 Si un “principio” deja de tener sentido cuando cambias de lenguaje o stack, probablemente no era un principio.
 
-## 🧩 Por qué los principios importan
+## Por qué los principios importan
 
 En sistemas reales:
 
@@ -63,11 +63,11 @@ Los principios actúan como campo gravitacional: no dictan el camino exacto, per
 - El criterio depende de la persona
 - El sistema pierde identidad técnica
 
-## 🧱 Principios arquitectónicos fundamentales
+## Principios arquitectónicos fundamentales
 
 Los siguientes principios aparecen, explícita o implícitamente, en la mayoría de sistemas sostenibles.
 
-### 1️⃣ Simplicidad consciente
+### 1. Simplicidad consciente
 
 La simplicidad no es falta de capacidad técnica; es una decisión deliberada.
 
@@ -83,7 +83,7 @@ La simplicidad no es falta de capacidad técnica; es una decisión deliberada.
 
 La complejidad siempre aparece; la pregunta es si aparece por necesidad o por diseño.
 
-### 2️⃣ Separación clara de responsabilidades
+### 2. Separación clara de responsabilidades
 
 Cada parte del sistema debe tener un propósito claro y limitado.
 
@@ -99,7 +99,7 @@ Cada parte del sistema debe tener un propósito claro y limitado.
 
 Cuando una pieza “hace de todo”, el sistema se vuelve frágil, no flexible.
 
-### 3️⃣ Modularidad como herramienta de cambio
+### 3. Modularidad como herramienta de cambio
 
 La modularidad no existe para organizar carpetas, sino para permitir evolución.
 
@@ -115,7 +115,7 @@ La modularidad no existe para organizar carpetas, sino para permitir evolución.
 
 Un módulo que no puede cambiarse de forma aislada no es realmente un módulo.
 
-### 4️⃣ Tolerancia al cambio (no al caos)
+### 4. Tolerancia al cambio (no al caos)
 
 El cambio es constante; la arquitectura debe asumirlo.
 
@@ -131,7 +131,7 @@ El cambio es constante; la arquitectura debe asumirlo.
 
 La arquitectura no debe congelar el sistema en el tiempo, sino permitir que aprenda.
 
-### 5️⃣ Decisiones explícitas sobre implícitas
+### 5. Decisiones explícitas sobre implícitas
 
 Lo implícito se olvida. Lo explícito se discute, se documenta y se mejora.
 
@@ -147,7 +147,7 @@ Lo implícito se olvida. Lo explícito se discute, se documenta y se mejora.
 
 Un sistema lleno de decisiones implícitas es difícil de entender y peligroso de modificar.
 
-### 6️⃣ Observabilidad como principio, no como extra
+### 6. Observabilidad como principio, no como extra
 
 No se puede operar lo que no se puede observar.
 
@@ -163,7 +163,7 @@ No se puede operar lo que no se puede observar.
 
 La observabilidad no arregla problemas, pero permite reaccionar antes de que escalen.
 
-### 7️⃣ Optimizar para el mantenimiento, no solo para la entrega
+### 7. Optimizar para el mantenimiento, no solo para la entrega
 
 El software vive más tiempo del que se desarrolla.
 
@@ -179,7 +179,7 @@ El software vive más tiempo del que se desarrolla.
 
 Un sistema que solo entiende quien lo escribió ya empezó a fallar.
 
-## 🧭 Cómo usar estos principios en la práctica
+## Cómo usar estos principios en la práctica
 
 Los principios arquitectónicos se usan cuando:
 
@@ -195,7 +195,7 @@ Los principios arquitectónicos se usan cuando:
 
 Los principios orientan, no sustituyen el pensamiento crítico.
 
-### ⚠️ Antipatrones comunes
+### Antipatrones comunes
 
 - Convertir principios en dogmas
 - Usarlos para bloquear discusión
@@ -204,7 +204,7 @@ Los principios orientan, no sustituyen el pensamiento crítico.
 
 Un principio mal aplicado puede ser tan dañino como no tener ninguno.
 
-## 🧠 Cierre conceptual
+## Cierre conceptual
 
 La arquitectura no es un diagrama ni un stack tecnológico. Es un conjunto de decisiones sostenidas en el tiempo.
 

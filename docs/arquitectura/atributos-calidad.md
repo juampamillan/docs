@@ -6,7 +6,7 @@ title: Atributos de calidad obligatorios (y cómo evaluarlos)
 
 # Atributos de calidad obligatorios (y cómo evaluarlos)
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento define los atributos de calidad que todo sistema de software debería considerar de forma explícita, más allá de que “funcione”.
 La funcionalidad es solo el punto de partida; la calidad determina si el sistema puede sostenerse, evolucionar y operar en el tiempo.
@@ -19,7 +19,7 @@ El objetivo es:
 
 Un sistema puede cumplir todos los requerimientos funcionales y aun así ser un mal sistema.
 
-## 🧠 Qué son los atributos de calidad
+## Qué son los atributos de calidad
 
 Los atributos de calidad describen cómo se comporta el sistema bajo distintas condiciones.
 
@@ -36,7 +36,7 @@ Sino a:
 
 En arquitectura, estos atributos condicionan las decisiones más importantes.
 
-### 🚫 El error común: tratarlos como secundarios
+### El error común: tratarlos como secundarios
 
 Un antipatrón frecuente es:
 
@@ -46,7 +46,7 @@ Un antipatrón frecuente es:
 
 Los atributos de calidad no emergen solos. Si no se diseñan, se degradan.
 
-## 🧩 Relación entre arquitectura y atributos de calidad
+## Relación entre arquitectura y atributos de calidad
 
 Cada decisión arquitectónica favorece unos atributos y sacrifica otros.
 
@@ -58,12 +58,12 @@ Cada decisión arquitectónica favorece unos atributos y sacrifica otros.
 
 Arquitectura es gestión consciente de trade-offs, no optimización absoluta.
 
-## 🧱 Atributos de calidad fundamentales
+## Atributos de calidad fundamentales
 
 Los siguientes atributos aparecen recurrentemente en sistemas reales.
 No todos se optimizan al máximo, pero todos deben considerarse.
 
-### 1️⃣ Mantenibilidad
+### 1. Mantenibilidad
 
 Capacidad del sistema para ser modificado de forma segura y predecible.
 
@@ -87,7 +87,7 @@ Capacidad del sistema para ser modificado de forma segura y predecible.
 
 Si cada cambio da miedo, el sistema no es mantenible.
 
-### 2️⃣ Escalabilidad
+### 2. Escalabilidad
 
 Capacidad del sistema para manejar crecimiento en carga, datos o usuarios.
 
@@ -107,7 +107,7 @@ No es solo “soportar más tráfico”, sino cómo responde el sistema al creci
 
 Un sistema que escala solo con heroísmo humano no escala.
 
-### 3️⃣ Performance (rendimiento)
+### 3. Performance (rendimiento)
 
 Tiempo y recursos que el sistema consume para cumplir su función.
 
@@ -129,7 +129,7 @@ Tiempo y recursos que el sistema consume para cumplir su función.
 
 Performance sin observabilidad es especulación.
 
-### 4️⃣ Seguridad
+### 4. Seguridad
 
 Capacidad del sistema para proteger datos, identidad y operaciones.
 
@@ -150,7 +150,7 @@ No es un feature; es una propiedad transversal.
 
 La seguridad que no se revisa se asume… y eso es peligroso.
 
-### 5️⃣ Observabilidad
+### 5. Observabilidad
 
 Capacidad del sistema para exponer su estado interno mediante señales externas.
 
@@ -172,7 +172,7 @@ Capacidad del sistema para exponer su estado interno mediante señales externas.
 
 Un sistema silencioso es un sistema ciego.
 
-### 6️⃣ Resiliencia
+### 6. Resiliencia
 
 Capacidad del sistema para resistir fallos y recuperarse.
 
@@ -194,7 +194,7 @@ Parte de una verdad incómoda:
 
 Un sistema que falla de forma caótica amplifica el impacto del error.
 
-### 7️⃣ Testabilidad
+### 7. Testabilidad
 
 Facilidad para verificar el comportamiento del sistema.
 
@@ -212,7 +212,7 @@ Facilidad para verificar el comportamiento del sistema.
 
 Si probar es difícil, el diseño probablemente lo es.
 
-## 🧪 Evaluación objetiva vs percepción
+## Evaluación objetiva vs percepción
 
 Un error común es evaluar calidad por sensación:
 
@@ -228,7 +228,7 @@ La arquitectura madura introduce:
 
 Lo que no se puede evaluar, no se puede mejorar.
 
-## ⚖️ Priorizar atributos según contexto
+## Priorizar atributos según contexto
 
 No todos los sistemas priorizan lo mismo.
 
@@ -240,7 +240,7 @@ No todos los sistemas priorizan lo mismo.
 
 La clave es hacer explícita la prioridad, no asumirla.
 
-### ⚠️ Antipatrones comunes
+### Antipatrones comunes
 
 - Optimizar todos los atributos al máximo
 - Ignorar trade-offs
@@ -249,7 +249,7 @@ La clave es hacer explícita la prioridad, no asumirla.
 
 La calidad no se agrega; se diseña.
 
-## 🧠 Cierre conceptual
+## Cierre conceptual
 
 Los atributos de calidad son el lenguaje real de la arquitectura.
 

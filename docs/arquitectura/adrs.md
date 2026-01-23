@@ -6,7 +6,7 @@ title: Uso y formato de Architecture Decision Records (ADR)
 
 # Uso y formato de Architecture Decision Records (ADR)
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento define cuándo, cómo y por qué registrar decisiones arquitectónicas mediante Architecture Decision Records (ADR).
 
@@ -16,7 +16,7 @@ Un ADR responde a una necesidad fundamental del software:
 
 > La arquitectura cambia, pero la memoria humana no escala.
 
-## 🧠 Qué es un ADR
+## Qué es un ADR
 
 Un ADR es un documento breve que captura:
 
@@ -33,7 +33,7 @@ Un ADR bien escrito permite que alguien que no estuvo presente entienda:
 - Qué se intentaba optimizar
 - Qué se aceptó como costo
 
-### 🚫 Qué NO es un ADR
+### Qué NO es un ADR
 
 No es:
 
@@ -44,7 +44,7 @@ No es:
 
 Si un ADR explica cómo escribir el código, está mal enfocado. Debe explicar por qué el código existe así.
 
-## 🧩 Por qué los ADRs son necesarios
+## Por qué los ADRs son necesarios
 
 En sistemas reales ocurre lo siguiente:
 
@@ -62,7 +62,7 @@ En sistemas reales ocurre lo siguiente:
 
 Un ADR es un antídoto contra el olvido técnico.
 
-## 🧭 Cuándo crear un ADR
+## Cuándo crear un ADR
 
 No todas las decisiones requieren ADR.
 
@@ -84,19 +84,19 @@ Un ADR es recomendable cuando la decisión:
 
 Decisiones triviales no necesitan memoria eterna.
 
-## 🧱 Estructura estándar de un ADR
+## Estructura estándar de un ADR
 
 Un ADR debe ser simple, legible y consistente.
 Un formato común y efectivo incluye los siguientes apartados.
 
-### 1️⃣ Título
+### 1. Título
 
 Debe ser claro y específico.
 
 **Ejemplo:**
 “Uso de base de datos relacional para el core transaccional”
 
-### 2️⃣ Estado
+### 2. Estado
 
 Indica la vigencia de la decisión:
 
@@ -107,7 +107,7 @@ Indica la vigencia de la decisión:
 
 Esto permite entender si la decisión sigue activa o fue superada.
 
-### 3️⃣ Contexto
+### 3. Contexto
 
 Describe el problema que se intenta resolver.
 
@@ -121,7 +121,7 @@ Describe el problema que se intenta resolver.
 Este apartado responde a:
 ¿Qué estaba pasando cuando se tomó esta decisión?
 
-### 4️⃣ Decisión
+### 4. Decisión
 
 Describe claramente qué se decidió.
 
@@ -131,7 +131,7 @@ No debe justificar todavía; solo declarar.
 **Ejemplo:**
 “Se utilizará una base de datos relacional para las operaciones transaccionales críticas.”
 
-### 5️⃣ Alternativas consideradas
+### 5. Alternativas consideradas
 
 Lista las opciones evaluadas y por qué no fueron elegidas.
 
@@ -143,7 +143,7 @@ Esto es clave para:
 
 Aquí vive el pensamiento arquitectónico real.
 
-### 6️⃣ Consecuencias
+### 6. Consecuencias
 
 Describe los efectos de la decisión:
 
@@ -154,7 +154,7 @@ Describe los efectos de la decisión:
 
 Toda decisión tiene consecuencias; el ADR las hace explícitas.
 
-## 📁 Dónde viven los ADRs
+## Dónde viven los ADRs
 
 Los ADRs deben vivir:
 
@@ -170,7 +170,7 @@ Los ADRs deben vivir:
 
 Un ADR que no se puede encontrar es historia perdida.
 
-## 🔄 ADRs como documentos vivos
+## ADRs como documentos vivos
 
 Un ADR no es inmutable.
 
@@ -184,7 +184,7 @@ Cuando una decisión cambia, se registra un nuevo ADR, no se reescribe la histor
 
 La evolución es parte del diseño.
 
-## ⚠️ Antipatrones comunes con ADRs
+## Antipatrones comunes con ADRs
 
 - Escribir ADRs después del desastre
 - Usarlos solo para decisiones obvias
@@ -194,7 +194,7 @@ La evolución es parte del diseño.
 
 Un ADR inútil es peor que ninguno.
 
-## 🧠 ADRs y cultura técnica
+## ADRs y cultura técnica
 
 Los ADRs fomentan:
 
@@ -210,7 +210,7 @@ Cuando alguien lee un ADR y dice:
 
 El ADR cumplió su función.
 
-## 🧭 Relación con los atributos de calidad
+## Relación con los atributos de calidad
 
 Cada ADR debería responder implícitamente:
 
@@ -220,7 +220,7 @@ Cada ADR debería responder implícitamente:
 
 Si un ADR no toca calidad, probablemente documenta algo irrelevante.
 
-## 🧠 Cierre conceptual
+## Cierre conceptual
 
 La arquitectura no se define solo por decisiones, sino por decisiones recordadas.
 

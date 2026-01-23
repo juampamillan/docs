@@ -8,153 +8,174 @@ sidebar_position: 5
 
 ## Propósito del documento
 
-Este documento describe un pipeline estándar de Integración Continua y Despliegue Continuo (CI/CD) como referencia técnica para el desarrollo y operación de software moderno. Su objetivo es ofrecer una base conceptual clara sobre qué etapas mínimas debería incluir un pipeline saludable, qué validaciones son importantes y qué criterios indican que un cambio está listo para avanzar hacia producción.
+Este documento define el pipeline estándar de Integración Continua y Despliegue Continuo (CI/CD) que deben seguir los proyectos de la organización. Su objetivo es establecer una base común y confiable que permita integrar cambios de forma frecuente, detectar errores temprano y desplegar a producción con menor riesgo.
 
-El pipeline se presenta aquí como una herramienta de aprendizaje y crecimiento profesional, no como una imposición organizacional. Las ideas descritas pueden adaptarse a distintos contextos, tamaños de equipo, herramientas o niveles de madurez técnica.
+Un pipeline estándar no busca limitar la autonomía de los equipos ni imponer una única herramienta o proveedor. Busca algo más fundamental: reducir la variabilidad innecesaria. Cuando cada proyecto tiene un pipeline distinto, los errores se multiplican, el aprendizaje no se comparte y la operación se vuelve frágil.
 
-Un pipeline estándar no limita la creatividad ni la experimentación; establece una base confiable sobre la cual es posible construir con mayor seguridad.
+Este documento convierte el pipeline en una pieza explícita de la arquitectura del sistema, no en un script accidental.
 
-## Qué es un pipeline de CI/CD
+## Qué es y qué no es un pipeline estándar
 
-Un pipeline de CI/CD es un flujo automatizado que toma un cambio de código y lo somete a una serie de validaciones antes de convertirlo en software ejecutable en un entorno real.
+Un pipeline estándar es un contrato operativo mínimo. Define qué etapas deben existir, qué validaciones son obligatorias y bajo qué condiciones un cambio puede avanzar.
 
-*   **Integración continua** significa integrar cambios de forma frecuente y validarlos automáticamente.
-*   **Despliegue continuo** significa que esos cambios, una vez validados, pueden llegar a producción de forma repetible y controlada.
+No es:
 
-El pipeline no es solo una herramienta técnica: es una representación explícita de cómo se confía en el software.
+- Una implementación específica en una herramienta concreta.
+- Una receta cerrada que no puede extenderse.
+- Un obstáculo burocrático para desplegar.
 
-## Qué se entiende por “estándar”
+Sí es:
 
-En este contexto, “estándar” no implica rigidez ni uniformidad absoluta. Implica la existencia de etapas mínimas razonables que aparecen de forma consistente en proyectos saludables, independientemente del lenguaje, framework o proveedor de infraestructura.
+- Un flujo base reproducible.
+- Una garantía mínima de calidad y seguridad.
+- Un lenguaje común entre desarrollo, QA y operaciones.
 
-El objetivo del estándar es reducir variabilidad innecesaria y establecer expectativas claras sobre qué significa que un cambio esté listo para avanzar.
+La estandarización no elimina la innovación; elimina el caos innecesario.
 
-## Principios fundamentales del pipeline
+## Principios del pipeline
 
-Un pipeline efectivo se apoya en algunos principios clave.
+Antes de describir las etapas, es importante entender los principios que lo gobiernan.
 
-*   **El pipeline debe detectar errores lo antes posible.** Cuanto antes se detecta un problema, menor es su costo.
-*   **El pipeline debe ser rápido.** Un pipeline lento rompe el ciclo de feedback y empuja a saltarse validaciones.
-*   **El pipeline debe ser reproducible.** Un mismo commit debe producir el mismo resultado sin depender del contexto de ejecución.
-*   **El pipeline debe ser confiable.** Si falla sin razón aparente, pierde credibilidad y deja de usarse como referencia.
+- El pipeline es la primera línea de defensa del sistema. Todo lo que pueda detectarse automáticamente antes de producción debe detectarse ahí.
+- El pipeline debe ser rápido. Un pipeline lento rompe el feedback loop y empuja a los equipos a evadirlo.
+- El pipeline debe ser determinista. Un mismo commit debe producir el mismo resultado independientemente de quién lo ejecute.
+- El pipeline debe fallar de forma clara. Un fallo ambiguo es casi tan malo como no fallar.
 
-## Estructura lógica del pipeline
+## Estructura general del pipeline
 
-Aunque las implementaciones varían, un pipeline saludable suele incluir las siguientes etapas lógicas:
+Todo proyecto debe contar, como mínimo, con las siguientes etapas lógicas, aunque su implementación técnica pueda variar.
 
-1.  Validación inicial del código
-2.  Build o compilación
-3.  Ejecución de pruebas
-4.  Análisis estático y calidad
-5.  Empaquetado del artefacto
-6.  Despliegue controlado
+1. Validación de código
+2. Build
+3. Pruebas
+4. Análisis estático y calidad
+5. Empaquetado del artefacto
+6. Despliegue controlado
 
-Estas etapas reflejan el ciclo natural que sigue un cambio desde su creación hasta su ejecución en un entorno real.
+Estas etapas reflejan el ciclo natural del software desde el cambio hasta su ejecución.
 
-### Validación inicial del código
+### Etapa 1: Validación de código
 
-Esta es la etapa más simple y, al mismo tiempo, una de las más valiosas.
+Esta es la etapa más barata y, por tanto, una de las más importantes.
 
 Aquí se valida que el código:
 
-*   Sea sintácticamente correcto.
-*   Compile o transpile sin errores.
-*   Cumpla reglas básicas de formato y estilo.
+- Compile o transpile correctamente.
+- Cumpla reglas básicas de formato y estilo.
+- No tenga errores obvios de sintaxis o tipado.
 
-El objetivo es eliminar fallos triviales antes de consumir recursos más costosos. Si el código no pasa esta etapa, no tiene sentido continuar.
+Cualquier fallo en esta etapa debe detener el pipeline inmediatamente. No tiene sentido ejecutar pruebas o despliegues si el código ni siquiera cumple condiciones mínimas de sanidad.
 
-Una buena práctica es que estas validaciones también puedan ejecutarse localmente, reduciendo fricción y sorpresas.
+Una regla fundamental: si falla localmente, debe fallar en el pipeline.
 
-### Build o compilación
+### Etapa 2: Build
 
-La etapa de build genera el artefacto que será ejecutado más adelante. Dependiendo del tipo de proyecto, esto puede ser un binario, un bundle frontend, una imagen de contenedor o cualquier unidad desplegable.
+La etapa de build genera el artefacto que eventualmente se desplegará. Esto puede ser un bundle frontend, una imagen de contenedor, un binario o cualquier unidad ejecutable.
 
-Un build saludable debe ser:
+Criterios mínimos:
 
-*   Reproducible.
-*   Independiente del entorno.
-*   Determinista.
+- El build debe ser reproducible.
+- No debe depender de estado externo mutable.
+- Debe ejecutarse de la misma forma en todos los entornos.
 
-El artefacto generado aquí se considera la unidad que avanza por el resto del pipeline. No debería recompilarse en cada etapa posterior.
+El artefacto generado aquí es la unidad que avanza por el pipeline. No se recompila en cada entorno; se promueve.
 
-### Ejecución de pruebas
+### Etapa 3: Pruebas
 
-Las pruebas automatizadas validan supuestos sobre el comportamiento del sistema.
+Las pruebas no son un lujo; son una validación automática de supuestos.
 
-Un pipeline de referencia debería ejecutar, al menos:
+El pipeline debe ejecutar al menos:
 
-*   Pruebas unitarias relevantes.
-*   Pruebas de integración básicas cuando existan dependencias externas.
+- Pruebas unitarias relevantes.
+- Pruebas de integración básicas si existen.
 
-No se busca cobertura perfecta, sino proteger la lógica crítica y los flujos más importantes. Un pipeline sin pruebas transmite una falsa sensación de estabilidad.
+No se espera cobertura perfecta, pero sí pruebas sobre:
 
-### Análisis estático y calidad
+- Lógica crítica.
+- Flujos que no deben romperse.
+- Comportamientos que ya fallaron en el pasado.
 
-Esta etapa busca detectar problemas que no necesariamente rompen el sistema hoy, pero aumentan el riesgo mañana.
+Un pipeline que no ejecuta pruebas transmite una falsa sensación de seguridad.
 
-Incluye, por ejemplo:
+### Etapa 4: Análisis estático y calidad
 
-*   Análisis de complejidad.
-*   Detección de código duplicado.
-*   Revisión de dependencias vulnerables.
-*   Verificación de convenciones.
+Esta etapa busca detectar problemas que no necesariamente rompen el build, pero degradan el sistema a mediano plazo.
 
-No todos los hallazgos deben bloquear el pipeline, pero algunos sí. La clave es entender que la calidad técnica también puede automatizarse.
+Ejemplos:
 
-### Empaquetado y versionado del artefacto
+- Complejidad excesiva.
+- Código duplicado.
+- Dependencias inseguras.
+- Violaciones de convenciones.
+
+No todos los hallazgos deben bloquear el pipeline, pero algunos sí. La organización debe definir qué reglas son obligatorias y cuáles son informativas.
+
+La calidad técnica no debe depender solo de revisiones humanas.
+
+### Etapa 5: Empaquetado y versionado del artefacto
 
 Una vez validado, el artefacto debe:
 
-*   Tener una versión clara.
-*   Ser inmutable.
-*   Almacenarse de forma confiable.
+- Ser versionado de forma clara.
+- Almacenarse en un repositorio confiable.
+- Ser inmutable.
 
-Esto permite trazabilidad: saber qué versión está ejecutándose, de dónde proviene y qué validaciones pasó. Sin versionado consistente, el rollback se vuelve incierto.
+Esto permite trazabilidad completa: saber qué versión está en producción, de qué commit proviene y qué validaciones pasó.
 
-### Despliegue controlado
+Sin artefactos versionados, no hay rollback confiable.
 
-El despliegue es la transición del artefacto a un entorno ejecutable.
+### Etapa 6: Despliegue controlado
 
-Un pipeline de referencia asume que:
+El pipeline debe definir cómo y cuándo se despliega un cambio.
 
-*   El despliegue es automatizado.
-*   Existe al menos un entorno previo a producción.
-*   El despliegue es observable.
+Criterios mínimos:
 
-El pipeline no solo entrega código; coordina cambios en sistemas vivos.
+- El despliegue no debe ser manual paso a paso.
+- Debe existir al menos un entorno previo a producción.
+- El despliegue debe ser observable.
 
-## Criterios de éxito de un pipeline saludable
+El pipeline no solo entrega código; orquesta cambios en sistemas vivos.
 
-Un pipeline estándar cumple su función cuando:
+## Criterios de éxito del pipeline
 
-*   Proporciona feedback rápido.
-*   Reduce errores en producción.
-*   Hace visibles los fallos.
-*   Es comprensible incluso para quien no lo creó.
-*   Se convierte en una fuente de confianza, no de fricción.
+Un pipeline estándar se considera exitoso si:
 
-Un pipeline que depende de conocimiento implícito es un riesgo operativo.
+- Detecta errores temprano.
+- Reduce despliegues fallidos.
+- Permite identificar rápidamente qué salió mal.
+- Es entendido por cualquier persona del equipo.
+- Se ejecuta de forma consistente en todos los proyectos.
 
-## Antipatrones comunes
+Si el pipeline requiere “la persona que sabe cómo funciona”, es una señal de riesgo.
 
-Algunos errores frecuentes al diseñar pipelines incluyen:
+## Antipatrones comunes en CI/CD
 
-*   Automatizar demasiado tarde.
-*   Ejecutar validaciones críticas solo en producción.
-*   Recompilar artefactos en cada entorno.
-*   Saltarse etapas “temporalmente” que nunca vuelven.
-*   No versionar artefactos.
+Algunos errores frecuentes que este documento busca evitar:
 
-Estos patrones suelen aparecer cuando el pipeline se construye sin intención arquitectónica.
+- Pipelines distintos en cada proyecto sin razón.
+- Validaciones que se saltan “por urgencia”.
+- Builds que se repiten en cada entorno.
+- Despliegues manuales fuera del pipeline.
+- Falta de visibilidad sobre el estado del pipeline.
+
+Estos antipatrones suelen aparecer cuando el pipeline no se trata como parte del sistema.
 
 ## Evolución del pipeline
 
-Un pipeline estándar es un punto de partida. Con el tiempo, puede enriquecerse con nuevas etapas, optimizaciones o validaciones más sofisticadas.
+El pipeline estándar es un punto de partida, no un techo.
 
-La clave es que la evolución sea consciente y acumulativa, no producto de parches improvisados.
+Los equipos pueden:
+
+- Agregar etapas adicionales.
+- Optimizar tiempos.
+- Introducir nuevas validaciones.
+
+Pero nunca eliminar las etapas mínimas sin una justificación explícita y consensuada.
+
+La estandarización crea una base común sobre la cual es posible evolucionar con seguridad.
 
 ## Cierre
 
-Un pipeline de CI/CD bien diseñado no es solo automatización: es criterio técnico codificado. Representa cómo se confía en el software antes de ponerlo en manos de usuarios reales.
+Un pipeline de CI/CD no es solo automatización; es política operativa codificada. Define qué cambios son aceptables, cómo se validan y bajo qué condiciones llegan a producción.
 
-Como referencia técnica, este pipeline busca ofrecer una base sólida para aprender, comparar y mejorar prácticas DevOps, independientemente del contexto o herramienta utilizada.
+Cuando el pipeline es claro, confiable y compartido, el sistema se vuelve más predecible y el equipo gana velocidad real. No porque corra más rápido, sino porque tropieza menos.
