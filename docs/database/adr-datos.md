@@ -6,7 +6,7 @@ title: Registro de decisiones de datos (ADR de datos)
 
 # Registro de decisiones de datos (ADR de datos)
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento define cómo registrar decisiones relevantes relacionadas con el modelo de datos, utilizando un enfoque similar a los Architecture Decision Records (ADR).
 
@@ -19,7 +19,7 @@ El objetivo es:
 
 Los datos cambian lento, pero sus consecuencias duran mucho.
 
-## 🧠 Por qué los datos necesitan ADRs propios
+## Por qué los datos necesitan ADRs propios
 
 Las decisiones de datos suelen ser:
 
@@ -33,7 +33,7 @@ Las decisiones de datos suelen ser:
 - Se juzga el pasado con información nueva
 - Se repiten errores estructurales
 
-## 🧩 Qué decisiones ameritan un ADR de datos
+## Qué decisiones ameritan un ADR de datos
 
 **Ejemplos:**
 
@@ -45,7 +45,7 @@ Las decisiones de datos suelen ser:
 
 No todo cambio necesita ADR, pero los estructurales sí.
 
-## 🧱 Estructura de un ADR de datos
+## Estructura de un ADR de datos
 
 Un ADR de datos debe capturar:
 
@@ -65,7 +65,7 @@ Impacto en:
 - Operación
 - Evolución futura
 
-## 🔄 Relación con migraciones
+## Relación con migraciones
 
 Un ADR de datos:
 
@@ -75,7 +75,7 @@ Un ADR de datos:
 
 Las migraciones cuentan qué pasó. El ADR explica por qué pasó.
 
-## ⚠️ Antipatrones comunes
+## Antipatrones comunes
 
 - No documentar decisiones críticas
 - Escribir ADRs demasiado tarde
@@ -84,7 +84,7 @@ Las migraciones cuentan qué pasó. El ADR explica por qué pasó.
 
 Un ADR útil ahorra discusiones futuras.
 
-## 🧠 Cierre conceptual
+## Cierre conceptual
 
 El modelo de datos es una de las partes más rígidas del sistema. Por eso, sus decisiones deben quedar claramente registradas.
 

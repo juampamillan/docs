@@ -18,19 +18,19 @@ La observabilidad es la capacidad de entender qué está ocurriendo dentro de un
 
 No se trata solo de saber si el sistema está “arriba” o “abajo”, sino de poder responder preguntas como:
 
-*   ¿Está funcionando como se espera?
-*   ¿Dónde está fallando?
-*   ¿Por qué está fallando?
-*   ¿Desde cuándo ocurre el problema?
+- ¿Está funcionando como se espera?
+- ¿Dónde está fallando?
+- ¿Por qué está fallando?
+- ¿Desde cuándo ocurre el problema?
 
 Un sistema observable permite responder estas preguntas sin modificar el código ni desplegar cambios de emergencia.
 
-### Observabilidad vs monitoreo
+## Observabilidad vs monitoreo
 
 Aunque suelen usarse como sinónimos, observabilidad y monitoreo no son lo mismo.
 
-*   El **monitoreo** responde a preguntas conocidas: métricas predefinidas, alertas esperadas, umbrales configurados.
-*   La **observabilidad** permite investigar lo desconocido: comportamientos emergentes, fallos nuevos, interacciones inesperadas.
+- El monitoreo responde a preguntas conocidas: métricas predefinidas, alertas esperadas, umbrales configurados.
+- La observabilidad permite investigar lo desconocido: comportamientos emergentes, fallos nuevos, interacciones inesperadas.
 
 El monitoreo es un subconjunto de la observabilidad. Un sistema puede estar monitoreado sin ser verdaderamente observable.
 
@@ -44,9 +44,9 @@ Los logs son registros estructurados de eventos que ocurren dentro del sistema.
 
 Un sistema mínimamente observable debe emitir logs que:
 
-*   Sean legibles y estructurados.
-*   Incluyan contexto relevante (identificadores, estados, errores).
-*   Permitan reconstruir qué ocurrió antes, durante y después de un fallo.
+- Sean legibles y estructurados.
+- Incluyan contexto relevante (identificadores, estados, errores).
+- Permitan reconstruir qué ocurrió antes, durante y después de un fallo.
 
 Los logs no deben ser solo mensajes de texto arbitrarios; deben contar una historia coherente.
 
@@ -56,10 +56,10 @@ Las métricas son mediciones numéricas agregadas a lo largo del tiempo. Permite
 
 Ejemplos comunes incluyen:
 
-*   Tiempos de respuesta.
-*   Tasas de error.
-*   Uso de recursos.
-*   Cantidad de solicitudes procesadas.
+- Tiempos de respuesta.
+- Tasas de error.
+- Uso de recursos.
+- Cantidad de solicitudes procesadas.
 
 Las métricas permiten responder rápidamente si algo está fuera de lo normal, incluso antes de que un usuario lo reporte.
 
@@ -71,10 +71,10 @@ Son especialmente importantes en sistemas distribuidos, donde una sola acción d
 
 Una traza mínima debe permitir:
 
-*   Identificar el inicio y fin de una solicitud.
-*   Conocer qué componentes participaron.
-*   Medir tiempos parciales.
-*   Detectar cuellos de botella.
+- Identificar el inicio y fin de una solicitud.
+- Conocer qué componentes participaron.
+- Medir tiempos parciales.
+- Detectar cuellos de botella.
 
 Sin trazas, los sistemas distribuidos se vuelven opacos.
 
@@ -82,10 +82,10 @@ Sin trazas, los sistemas distribuidos se vuelven opacos.
 
 Para que los logs sean útiles, deben cumplir ciertos requisitos básicos.
 
-*   Los logs deben ser estructurados, idealmente en formatos que faciliten búsqueda y análisis automático.
-*   Deben existir niveles claros de severidad (información, advertencia, error) con criterios coherentes de uso.
-*   Los errores deben incluir contexto suficiente para entender el fallo sin necesidad de reproducirlo localmente.
-*   Los logs no deben exponer información sensible ni depender del entorno local para ser interpretados.
+- Los logs deben ser estructurados, idealmente en formatos que faciliten búsqueda y análisis automático.
+- Deben existir niveles claros de severidad (información, advertencia, error) con criterios coherentes de uso.
+- Los errores deben incluir contexto suficiente para entender el fallo sin necesidad de reproducirlo localmente.
+- Los logs no deben exponer información sensible ni depender del entorno local para ser interpretados.
 
 Un exceso de logs irrelevantes es tan problemático como la ausencia de logs.
 
@@ -95,10 +95,10 @@ Las métricas mínimas deben permitir evaluar la salud general del sistema.
 
 Al menos debería ser posible observar:
 
-*   Latencia.
-*   Tasa de errores.
-*   Volumen de tráfico.
-*   Saturación de recursos críticos.
+- Latencia.
+- Tasa de errores.
+- Volumen de tráfico.
+- Saturación de recursos críticos.
 
 Estas métricas deben recolectarse de forma continua y ser accesibles sin fricción durante un incidente.
 
@@ -110,9 +110,9 @@ Un sistema mínimamente observable debe permitir correlacionar eventos.
 
 Esto implica:
 
-*   Identificadores de correlación consistentes.
-*   Propagación de contexto entre componentes.
-*   Capacidad de unir logs, métricas y trazas.
+- Identificadores de correlación consistentes.
+- Propagación de contexto entre componentes.
+- Capacidad de unir logs, métricas y trazas.
 
 Sin correlación, cada señal vive aislada y el diagnóstico se vuelve lento y especulativo.
 
@@ -122,11 +122,11 @@ Un error sin observabilidad es solo un síntoma.
 
 Cuando ocurre un fallo, el sistema debería permitir responder rápidamente:
 
-*   Qué falló.
-*   Dónde falló.
-*   A quién afectó.
-*   Desde cuándo ocurre.
-*   Qué cambió antes del fallo.
+- Qué falló.
+- Dónde falló.
+- A quién afectó.
+- Desde cuándo ocurre.
+- Qué cambió antes del fallo.
 
 Si estas preguntas no pueden responderse con la información disponible, la observabilidad es insuficiente.
 
@@ -136,9 +136,9 @@ La observabilidad no debe añadirse después de que el sistema está en producci
 
 Esto implica:
 
-*   Pensar qué será difícil de diagnosticar.
-*   Definir qué señales se necesitarán.
-*   Evitar depender de logs improvisados.
+- Pensar qué será difícil de diagnosticar.
+- Definir qué señales se necesitarán.
+- Evitar depender de logs improvisados.
 
 La observabilidad es una forma de empatía con el futuro: con quien operará el sistema bajo presión.
 
@@ -146,11 +146,11 @@ La observabilidad es una forma de empatía con el futuro: con quien operará el 
 
 Algunos errores frecuentes incluyen:
 
-*   Confiar solo en logs.
-*   Generar logs no estructurados.
-*   Tener métricas sin contexto.
-*   No correlacionar señales.
-*   Descubrir la falta de observabilidad durante un incidente.
+- Confiar solo en logs.
+- Generar logs no estructurados.
+- Tener métricas sin contexto.
+- No correlacionar señales.
+- Descubrir la falta de observabilidad durante un incidente.
 
 Estos antipatrones suelen aparecer cuando la observabilidad se trata como un extra opcional.
 
@@ -160,10 +160,10 @@ Un sistema observable no solo permite reaccionar ante fallos; también permite a
 
 Permite:
 
-*   Entender comportamientos reales de uso.
-*   Detectar degradaciones progresivas.
-*   Validar suposiciones técnicas.
-*   Mejorar decisiones futuras.
+- Entender comportamientos reales de uso.
+- Detectar degradaciones progresivas.
+- Validar suposiciones técnicas.
+- Mejorar decisiones futuras.
 
 La observabilidad convierte la operación en una fuente continua de feedback.
 
@@ -173,10 +173,10 @@ Los requisitos mínimos descritos aquí son solo un punto de partida.
 
 Con el tiempo, pueden incorporarse:
 
-*   Alertas más sofisticadas.
-*   Dashboards especializados.
-*   Análisis predictivo.
-*   Automatización de respuestas.
+- Alertas más sofisticadas.
+- Dashboards especializados.
+- Análisis predictivo.
+- Automatización de respuestas.
 
 Lo importante es que la base exista y sea sólida.
 

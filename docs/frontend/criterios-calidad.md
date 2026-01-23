@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 7
 sidebar_label: Criterios de Calidad
 title: Criterios Mínimos de Calidad Frontend
 ---
@@ -24,19 +24,19 @@ La legibilidad no es un lujo estético; es un requisito funcional.
 
 Un desarrollo frontend aceptable debe cumplir, como mínimo, con lo siguiente:
 
-*   **El código debe ser fácil de seguir sin necesidad de contexto externo.** Un lector razonable debería poder entender qué hace un componente sin conocer toda la aplicación.
-*   **Las responsabilidades deben ser claras.** Un componente no debe mezclar renderizado, llamadas a API, reglas de negocio complejas y manejo de estado global al mismo tiempo. Si lo hace, debe refactorizarse antes de considerarse aceptable.
-*   **Los nombres importan.** Variables, funciones y componentes deben nombrarse por intención, no por implementación. Un nombre que requiere explicación es una señal de alerta.
-*   **La duplicación evidente debe evitarse.** Copiar y pegar lógica o UI sin una justificación clara introduce inconsistencia y riesgo.
+- **El código debe ser fácil de seguir sin necesidad de contexto externo.** Un lector razonable debería poder entender qué hace un componente sin conocer toda la aplicación.
+- **Las responsabilidades deben ser claras.** Un componente no debe mezclar renderizado, llamadas a API, reglas de negocio complejas y manejo de estado global al mismo tiempo. Si lo hace, debe refactorizarse antes de considerarse aceptable.
+- **Los nombres importan.** Variables, funciones y componentes deben nombrarse por intención, no por implementación. Un nombre que requiere explicación es una señal de alerta.
+- **La duplicación evidente debe evitarse.** Copiar y pegar lógica o UI sin una justificación clara introduce inconsistencia y riesgo.
 
 ## Manejo de estado
 
 El manejo de estado es uno de los puntos más sensibles en frontend y, por tanto, uno de los más regulados por estos criterios.
 
-*   **Todo estado debe tener un dueño claro.** Debe ser evidente quién lo crea, quién lo modifica y quién lo consume. El estado “huérfano” o implícito no es aceptable.
-*   **El estado debe vivir en el nivel correcto.** El estado local no debe elevarse sin necesidad, y el estado global no debe usarse como solución rápida para compartir información.
-*   **Las transiciones de estado deben ser predecibles.** Cambios de estado que disparan efectos secundarios invisibles o difíciles de rastrear deben justificarse o refactorizarse.
-*   **El estado global debe mantenerse pequeño.** Cada nueva incorporación al estado global debe responder a una necesidad real y transversal.
+- **Todo estado debe tener un dueño claro.** Debe ser evidente quién lo crea, quién lo modifica y quién lo consume. El estado “huérfano” o implícito no es aceptable.
+- **El estado debe vivir en el nivel correcto.** El estado local no debe elevarse sin necesidad, y el estado global no debe usarse como solución rápida para compartir información.
+- **Las transiciones de estado deben ser predecibles.** Cambios de estado que disparan efectos secundarios invisibles o difíciles de rastrear deben justificarse o refactorizarse.
+- **El estado global debe mantenerse pequeño.** Cada nueva incorporación al estado global debe responder a una necesidad real y transversal.
 
 ## Consistencia visual y de comportamiento
 
@@ -44,9 +44,9 @@ La consistencia es una forma de respeto al usuario y al equipo.
 
 Un desarrollo frontend aceptable debe mantener coherencia en:
 
-*   **Uso de componentes reutilizables en lugar de soluciones ad-hoc.** Si existe un componente base, debe usarse.
-*   **Comportamiento de acciones similares.** Botones, formularios y flujos equivalentes no deben comportarse de formas distintas sin razón documentada.
-*   **Estados visuales.** Carga, error, vacío y éxito deben tratarse de forma consistente en toda la aplicación.
+- **Uso de componentes reutilizables en lugar de soluciones ad-hoc.** Si existe un componente base, debe usarse.
+- **Comportamiento de acciones similares.** Botones, formularios y flujos equivalentes no deben comportarse de formas distintas sin razón documentada.
+- **Estados visuales.** Carga, error, vacío y éxito deben tratarse de forma consistente en toda la aplicación.
 
 La consistencia reduce la carga cognitiva tanto para usuarios como para desarrolladores.
 
@@ -56,11 +56,11 @@ La accesibilidad no es opcional, incluso en su forma mínima.
 
 Como piso de calidad, el frontend debe cumplir al menos con:
 
-*   Uso correcto de elementos semánticos cuando aplique.
-*   Posibilidad de navegación básica mediante teclado.
-*   Contraste suficiente para texto y elementos interactivos.
-*   Textos alternativos en elementos visuales relevantes.
-*   Indicadores claros de foco y estados interactivos.
+- Uso correcto de elementos semánticos cuando aplique.
+- Posibilidad de navegación básica mediante teclado.
+- Contraste suficiente para texto y elementos interactivos.
+- Textos alternativos en elementos visuales relevantes.
+- Indicadores claros de foco y estados interactivos.
 
 No se espera cumplimiento total de estándares avanzados, pero sí evitar barreras evidentes que excluyan a usuarios o dificulten el uso.
 
@@ -70,10 +70,10 @@ Un frontend de calidad no asume que todo saldrá bien.
 
 Todo flujo relevante debe considerar:
 
-*   Estados de carga.
-*   Errores de red o de servidor.
-*   Datos incompletos o inesperados.
-*   Acciones inválidas del usuario.
+- Estados de carga.
+- Errores de red o de servidor.
+- Datos incompletos o inesperados.
+- Acciones inválidas del usuario.
 
 Ignorar estos casos genera una falsa sensación de estabilidad. Un sistema que falla de forma clara y controlada es preferible a uno que falla silenciosamente.
 
@@ -83,9 +83,9 @@ Este documento no impone una estrategia completa de testing, pero sí define un 
 
 Al menos deben existir pruebas para:
 
-*   Lógica crítica de negocio en frontend.
-*   Flujos importantes que no deben romperse.
-*   Componentes reutilizables con comportamiento no trivial.
+- Lógica crítica de negocio en frontend.
+- Flujos importantes que no deben romperse.
+- Componentes reutilizables con comportamiento no trivial.
 
 La ausencia total de pruebas en áreas críticas es una señal de riesgo, no de velocidad.
 
@@ -95,9 +95,9 @@ La performance no se trata de micro-optimizaciones prematuras, sino de evitar ne
 
 Un desarrollo aceptable debe evitar:
 
-*   Renderizados innecesarios sin justificación.
-*   Cargas excesivas de datos que no se usan.
-*   Bloqueos visibles de la UI sin feedback.
+- Renderizados innecesarios sin justificación.
+- Cargas excesivas de datos que no se usan.
+- Bloqueos visibles de la UI sin feedback.
 
 No se exige optimización extrema, pero sí conciencia del costo.
 
@@ -105,10 +105,10 @@ No se exige optimización extrema, pero sí conciencia del costo.
 
 Aunque el frontend no es el principal guardián de la seguridad, existen responsabilidades mínimas:
 
-*   No exponer información sensible innecesariamente.
-*   No confiar en validaciones únicamente del lado del cliente.
-*   Manejar correctamente tokens, sesiones y errores visibles.
-*   Evitar leaks de información técnica en mensajes de error.
+- No exponer información sensible innecesariamente.
+- No confiar en validaciones únicamente del lado del cliente.
+- Manejar correctamente tokens, sesiones y errores visibles.
+- Evitar leaks de información técnica en mensajes de error.
 
 La seguridad no es absoluta, pero la negligencia es inaceptable.
 
@@ -118,9 +118,9 @@ Un cambio frontend no debería considerarse aceptado si viola claramente alguno 
 
 Estos criterios sirven como:
 
-*   Checklist de revisión.
-*   Marco para discusiones técnicas.
-*   Defensa contra la presión de entrega sin control.
+- Checklist de revisión.
+- Marco para discusiones técnicas.
+- Defensa contra la presión de entrega sin control.
 
 La calidad no debe depender del humor o experiencia de quien revisa el código.
 

@@ -6,7 +6,7 @@ title: Estrategia de migraciones y versionado de esquemas
 
 # Estrategia de migraciones y versionado de esquemas
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento describe una estrategia técnica para gestionar cambios en la base de datos de forma controlada, reproducible y segura, utilizando migraciones versionadas como mecanismo principal.
 
@@ -19,7 +19,7 @@ El objetivo es:
 
 La base de datos no es un detalle de implementación; es un activo central del sistema.
 
-## 🧠 El problema de fondo
+## El problema de fondo
 
 En muchos sistemas, la base de datos:
 
@@ -37,7 +37,7 @@ Esto genera efectos conocidos:
 
 Las migraciones existen para domar ese caos.
 
-## 🧩 Qué es una migración de esquema
+## Qué es una migración de esquema
 
 Una migración es un cambio incremental y versionado al esquema de la base de datos.
 
@@ -50,9 +50,9 @@ Una migración es un cambio incremental y versionado al esquema de la base de da
 
 Una migración no es solo SQL; es historia ejecutable del modelo de datos.
 
-## 🧱 Principios de una buena estrategia de migraciones
+## Principios de una buena estrategia de migraciones
 
-### 1️⃣ Versionado explícito
+### 1. Versionado explícito
 
 Cada cambio debe tener:
 
@@ -63,7 +63,7 @@ Cada cambio debe tener:
 Nunca se “edita” una migración aplicada.
 Los cambios se acumulan, no se reescriben.
 
-### 2️⃣ Automatización total
+### 2. Automatización total
 
 Las migraciones deben:
 
@@ -73,7 +73,7 @@ Las migraciones deben:
 
 Si alguien tiene que “acordarse” de correr un script, el sistema ya es frágil.
 
-### 3️⃣ Reproducibilidad entre entornos
+### 3. Reproducibilidad entre entornos
 
 El mismo conjunto de migraciones debe:
 
@@ -82,7 +82,7 @@ El mismo conjunto de migraciones debe:
 
 Producción no es especial; solo es más sensible.
 
-### 4️⃣ Migraciones pequeñas y enfocadas
+### 4. Migraciones pequeñas y enfocadas
 
 Una migración debe:
 
@@ -92,7 +92,7 @@ Una migración debe:
 
 Migraciones gigantes son difíciles de revisar y peligrosas de revertir.
 
-## 🔄 Migraciones forward-only vs rollback
+## Migraciones forward-only vs rollback
 
 En la práctica:
 
@@ -107,7 +107,7 @@ Por eso:
 
 El rollback no es solo técnico; es estratégico.
 
-## ⚠️ Antipatrones comunes
+## Antipatrones comunes
 
 - Cambios manuales “rápidos” en producción
 - Migraciones que dependen del estado previo implícito
@@ -116,7 +116,7 @@ El rollback no es solo técnico; es estratégico.
 
 Cada uno de estos erosiona la confianza en el sistema.
 
-## 🧠 Cierre conceptual
+## Cierre conceptual
 
 Las migraciones no son burocracia. Son el lenguaje formal de evolución del modelo de datos.
 

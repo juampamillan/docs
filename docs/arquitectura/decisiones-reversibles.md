@@ -6,7 +6,7 @@ title: Criterios para decisiones reversibles
 
 # Criterios para decisiones reversibles
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento describe cómo identificar, clasificar y tratar decisiones reversibles e irreversibles dentro de un sistema de software.
 
@@ -19,7 +19,7 @@ El objetivo no es evitar decisiones difíciles, sino:
 
 Una buena arquitectura no elimina errores; los hace baratos.
 
-## 🧠 La naturaleza real de las decisiones técnicas
+## La naturaleza real de las decisiones técnicas
 
 Toda decisión técnica tiene dos componentes:
 
@@ -31,7 +31,7 @@ El problema es decidir mal de forma irreversible sin saberlo.
 
 Muchas arquitecturas fallan no por malas decisiones, sino por mal manejo de la reversibilidad.
 
-## 🔄 Decisiones reversibles vs irreversibles
+## Decisiones reversibles vs irreversibles
 
 ### Decisiones reversibles
 
@@ -64,7 +64,7 @@ Son decisiones que:
 - Contratos públicos de API
 - Arquitectura base del sistema
 
-## 🧩 El error común: tratarlas igual
+## El error común: tratarlas igual
 
 Un antipatrón frecuente es:
 
@@ -74,7 +74,7 @@ Un antipatrón frecuente es:
 
 La arquitectura madura cambia el proceso según el tipo de decisión.
 
-## 🧭 Principio fundamental
+## Principio fundamental
 
 > Cuanto más irreversible es una decisión, más evidencia y deliberación requiere.
 
@@ -87,11 +87,11 @@ Este principio evita dos extremos:
 1. Parálisis por análisis
 2. Temeridad técnica
 
-## 🧱 Criterios para evaluar reversibilidad
+## Criterios para evaluar reversibilidad
 
 Antes de tomar una decisión importante, conviene evaluar:
 
-### 1️⃣ Impacto en datos
+### 1. Impacto en datos
 
 **Preguntas clave:**
 
@@ -101,7 +101,7 @@ Antes de tomar una decisión importante, conviene evaluar:
 
 Las decisiones que tocan datos suelen ser costosas de revertir.
 
-### 2️⃣ Superficie de acoplamiento
+### 2. Superficie de acoplamiento
 
 **Preguntas clave:**
 
@@ -111,7 +111,7 @@ Las decisiones que tocan datos suelen ser costosas de revertir.
 
 Cuanto mayor el acoplamiento, menor la reversibilidad.
 
-### 3️⃣ Coste operativo
+### 3. Coste operativo
 
 **Preguntas clave:**
 
@@ -121,7 +121,7 @@ Cuanto mayor el acoplamiento, menor la reversibilidad.
 
 Una decisión difícil de operar también es difícil de revertir.
 
-### 4️⃣ Costo humano
+### 4. Costo humano
 
 **Preguntas clave:**
 
@@ -131,7 +131,7 @@ Una decisión difícil de operar también es difícil de revertir.
 
 El factor humano suele subestimarse y es crítico.
 
-## 🧪 Estrategias para decisiones de alto impacto
+## Estrategias para decisiones de alto impacto
 
 Cuando una decisión es poco reversible, conviene:
 
@@ -142,7 +142,7 @@ Cuando una decisión es poco reversible, conviene:
 
 No todo se puede probar, pero mucho se puede aislar.
 
-## 🔧 Tratar decisiones reversibles como experimentos
+## Tratar decisiones reversibles como experimentos
 
 Las decisiones reversibles son oportunidades de aprendizaje.
 
@@ -155,7 +155,7 @@ Las decisiones reversibles son oportunidades de aprendizaje.
 
 Aquí la velocidad importa más que la perfección.
 
-## ⚖️ Relación con los ADRs
+## Relación con los ADRs
 
 Un ADR debería indicar implícitamente:
 
@@ -165,7 +165,7 @@ Un ADR debería indicar implícitamente:
 
 Esto convierte al ADR en una herramienta de gestión del cambio, no solo de memoria.
 
-## ⚠️ Antipatrones comunes
+## Antipatrones comunes
 
 - Diseñar todo como irreversible
 - Congelar decisiones por miedo
@@ -174,7 +174,7 @@ Esto convierte al ADR en una herramienta de gestión del cambio, no solo de memo
 
 La flexibilidad bien diseñada no es caos, es resiliencia.
 
-## 🧠 Arquitectura como sistema de aprendizaje
+## Arquitectura como sistema de aprendizaje
 
 Una arquitectura saludable:
 

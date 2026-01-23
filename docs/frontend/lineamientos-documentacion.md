@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 sidebar_label: Lineamientos de Documentación
 title: Lineamientos de Documentación de UI y Estado
 ---
@@ -20,7 +20,7 @@ Antes de definir qué debe documentarse, es importante aclarar qué no se espera
 
 No se trata de documentar cada componente, cada prop o cada línea de código. Tampoco busca reemplazar el código como fuente de verdad ni convertirse en un manual exhaustivo que nadie lee.
 
-Esta documentación **no** es:
+Esta documentación no es:
 
 - Un duplicado del código.
 - Una especificación de diseño visual pixel-perfect.
@@ -32,7 +32,7 @@ Es, en cambio, un mapa mental compartido del sistema.
 
 La regla más importante es sencilla pero poderosa:
 
-> **Si algo no es obvio al leer el código, probablemente deba documentarse.**
+> Si algo no es obvio al leer el código, probablemente deba documentarse.
 
 Esto incluye:
 
@@ -42,7 +42,7 @@ Esto incluye:
 - Restricciones técnicas.
 - Razones detrás de una implementación.
 
-La documentación no explica *qué* hace el código (eso debería verse en el código), sino *por qué* existe de esa forma.
+La documentación no explica qué hace el código (eso debería verse en el código), sino por qué existe de esa forma.
 
 ## Documentación de flujos de UI
 
@@ -52,20 +52,20 @@ Un flujo de UI es una secuencia de estados y pantallas que el usuario atraviesa 
 
 Para cada flujo relevante, se debería documentar al menos:
 
-1. Objetivo del flujo desde la perspectiva del usuario.
-2. Pantallas o vistas involucradas.
-3. Estados principales del flujo.
-4. Puntos de decisión (condiciones que cambian el comportamiento).
-5. Estados de error y excepciones.
-6. Casos límite conocidos.
+- Objetivo del flujo desde la perspectiva del usuario.
+- Pantallas o vistas involucradas.
+- Estados principales del flujo.
+- Puntos de decisión (condiciones que cambian el comportamiento).
+- Estados de error y excepciones.
+- Casos límite conocidos.
 
 No es necesario usar diagramas complejos; muchas veces un texto estructurado es suficiente.
 
 ### Ejemplo conceptual de flujo documentado
 
-> **Flujo: Creación de reporte mensual.**
->
-> El usuario inicia el flujo desde el dashboard. Si no tiene permisos suficientes, se muestra un mensaje de bloqueo y no puede continuar. Si tiene permisos, se presenta un formulario con validaciones tanto sincrónicas como asincrónicas. Al enviar el formulario, la UI entra en estado de carga. Si la API responde correctamente, se redirige al detalle del reporte. Si ocurre un error, se muestra un mensaje específico dependiendo del tipo de fallo.
+**Flujo: Creación de reporte mensual.**
+
+El usuario inicia el flujo desde el dashboard. Si no tiene permisos suficientes, se muestra un mensaje de bloqueo y no puede continuar. Si tiene permisos, se presenta un formulario con validaciones tanto sincrónicas como asincrónicas. Al enviar el formulario, la UI entra en estado de carga. Si la API responde correctamente, se redirige al detalle del reporte. Si ocurre un error, se muestra un mensaje específico dependiendo del tipo de fallo.
 
 Este tipo de descripción evita que el conocimiento del flujo dependa de “acordarse cómo funcionaba”.
 
@@ -145,7 +145,7 @@ Buenas opciones incluyen:
 
 - Archivos Markdown por módulo o feature.
 - Secciones específicas en el sitio de documentación.
-- Documentación enlazada desde el `README` del módulo.
+- Documentación enlazada desde el README del módulo.
 
 Lo importante es que sea:
 
@@ -159,9 +159,9 @@ Una de las pruebas más claras de que esta documentación funciona es el onboard
 
 Una persona nueva debería poder:
 
-1. Entender los flujos principales sin ejecutar la app.
-2. Comprender cómo se maneja el estado clave.
-3. Identificar dónde hacer cambios sin miedo excesivo.
+- Entender los flujos principales sin ejecutar la app.
+- Comprender cómo se maneja el estado clave.
+- Identificar dónde hacer cambios sin miedo excesivo.
 
 Si el onboarding depende de “hablar con la persona correcta”, el sistema es frágil.
 
@@ -187,7 +187,7 @@ La documentación debe evolucionar junto con el código. Para ello, es recomenda
 
 Una documentación ligeramente incompleta es mejor que una aparentemente completa pero incorrecta.
 
-## Conclusión
+## Cierre
 
 La documentación de UI y estado no es burocracia. Es una estrategia consciente para reducir dependencia de individuos, disminuir errores costosos y permitir que el frontend crezca sin volverse opaco.
 

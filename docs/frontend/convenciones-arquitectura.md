@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 sidebar_label: Convenciones de Arquitectura
 title: Convenciones de Arquitectura Frontend
 ---
@@ -16,11 +16,11 @@ En sistemas pequeños, muchas decisiones pueden tomarse de forma implícita. En 
 
 Antes de hablar de carpetas, archivos o patrones, es importante dejar claros algunos principios que guían estas convenciones.
 
-- **El frontend es un sistema, no solo vistas.** Un frontend moderno no es únicamente una colección de pantallas. Maneja estado complejo, reglas de negocio, flujos asincrónicos, permisos, errores y experiencia de usuario. Por tanto, debe tratarse como un sistema de software completo, con arquitectura, límites y responsabilidades claras.
+**El frontend es un sistema, no solo vistas.** Un frontend moderno no es únicamente una colección de pantallas. Maneja estado complejo, reglas de negocio, flujos asincrónicos, permisos, errores y experiencia de usuario. Por tanto, debe tratarse como un sistema de software completo, con arquitectura, límites y responsabilidades claras.
 
-- **Optimizar para lectura, no para escritura.** El código frontend se escribe una vez, pero se lee cientos de veces. Estas convenciones priorizan que cualquier persona pueda entender rápidamente qué hace el sistema, dónde vive cada cosa y qué no debería tocar, incluso sin haber participado en su desarrollo original.
+**Optimizar para lectura, no para escritura.** El código frontend se escribe una vez, pero se lee cientos de veces. Estas convenciones priorizan que cualquier persona pueda entender rápidamente qué hace el sistema, dónde vive cada cosa y qué no debería tocar, incluso sin haber participado en su desarrollo original.
 
-- **Separación de responsabilidades por intención, no por tecnología.** Separar “componentes”, “hooks” y “servicios” no es suficiente si no está claro para qué existe cada cosa. La arquitectura debe expresar intención: qué es UI, qué es estado, qué es lógica de dominio y qué es infraestructura.
+**Separación de responsabilidades por intención, no por tecnología.** Separar “componentes”, “hooks” y “servicios” no es suficiente si no está claro para qué existe cada cosa. La arquitectura debe expresar intención: qué es UI, qué es estado, qué es lógica de dominio y qué es infraestructura.
 
 ## Estructura general del frontend
 
@@ -30,13 +30,13 @@ Una estructura base recomendada podría verse conceptualmente así:
 
 ```
 src
-├── app         # Configuración de la aplicación (routing, providers)
-├── modules     # Features o dominios funcionales
-├── shared      # Elementos reutilizables y transversales
-├── services    # Acceso a APIs y servicios externos
-├── state       # Estado global y configuración
-├── styles      # Estilos globales y tokens de diseño
-└── utils       # Utilidades puras
+├── app – configuración de la aplicación (routing, providers)
+├── modules – features o dominios funcionales
+├── shared – elementos reutilizables y transversales
+├── services – acceso a APIs y servicios externos
+├── state – estado global y configuración
+├── styles – estilos globales y tokens de diseño
+└── utils – utilidades puras
 ```
 
 Esta estructura no es rígida, pero sí intencional. Cada carpeta tiene un propósito claro y evita mezclar conceptos incompatibles.
@@ -55,19 +55,19 @@ Un síntoma claro de mala arquitectura es cuando, para entender un feature, hay 
 
 No todos los componentes son iguales, y tratarlos como si lo fueran suele generar confusión.
 
-- **Componentes de presentación:** Están enfocados exclusivamente en renderizar UI. No conocen APIs, no manejan estado global y reciben datos y callbacks por props. Son predecibles, reutilizables y fáciles de testear. Estos componentes pueden vivir en `shared` o dentro de un módulo si son específicos de ese dominio.
+**Los componentes de presentación** están enfocados exclusivamente en renderizar UI. No conocen APIs, no manejan estado global y reciben datos y callbacks por props. Son predecibles, reutilizables y fáciles de testear. Estos componentes pueden vivir en shared o dentro de un módulo si son específicos de ese dominio.
 
-- **Componentes contenedores o de composición:** Su responsabilidad es conectar estado, llamar hooks, orquestar flujos y decidir qué se renderiza. Idealmente, no contienen markup complejo, sino que ensamblan componentes de presentación. Esta separación evita que los componentes se conviertan en unidades gigantes que hacen todo y son difíciles de mantener.
+**Por otro lado, existen componentes contenedores o de composición.** Su responsabilidad es conectar estado, llamar hooks, orquestar flujos y decidir qué se renderiza. Idealmente, no contienen markup complejo, sino que ensamblan componentes de presentación. Esta separación evita que los componentes se conviertan en unidades gigantes que hacen todo y son difíciles de mantener.
 
 ## Manejo de estado
 
 Uno de los mayores focos de complejidad en frontend es el estado. No todo estado es igual, y mezclar niveles genera errores sutiles y difíciles de rastrear.
 
-1. **Estado local:** Pertenece a un componente o a un flujo muy acotado. Ejemplos típicos son inputs de un formulario, el estado de un modal o banderas puramente visuales. Este estado debe vivir lo más cerca posible de donde se usa.
+**El estado local** pertenece a un componente o a un flujo muy acotado. Ejemplos típicos son inputs de un formulario, el estado de un modal o banderas puramente visuales. Este estado debe vivir lo más cerca posible de donde se usa.
 
-2. **Estado compartido por módulo:** Aparece cuando varios componentes dentro del mismo dominio necesitan acceder a la misma información. En estos casos, se recomienda encapsular ese estado en hooks o stores a nivel de módulo, evitando llevarlo innecesariamente al estado global de la aplicación.
+**El estado compartido por módulo** aparece cuando varios componentes dentro del mismo dominio necesitan acceder a la misma información. En estos casos, se recomienda encapsular ese estado en hooks o stores a nivel de módulo, evitando llevarlo innecesariamente al estado global de la aplicación.
 
-3. **Estado global:** Debe ser mínimo y claramente justificado. Ejemplos válidos suelen ser la sesión del usuario, permisos, tema visual o feature flags. Cada pieza de estado global debería responder con claridad a la pregunta: ¿múltiples módulos realmente necesitan esto? Si la respuesta es no, probablemente no debería ser global.
+**El estado global** debe ser mínimo y claramente justificado. Ejemplos válidos suelen ser la sesión del usuario, permisos, tema visual o feature flags. Cada pieza de estado global debería responder con claridad a la pregunta: ¿múltiples módulos realmente necesitan esto? Si la respuesta es no, probablemente no debería ser global.
 
 ## Lógica de negocio en el frontend
 
@@ -91,12 +91,7 @@ Si casi nada sobrevive, probablemente la arquitectura esté demasiado acoplada a
 
 ## Antipatrones comunes
 
-Algunos olores que indican problemas estructurales son:
-- Carpetas gigantes de componentes sin criterio.
-- Hooks que mezclan llamadas a API, estado global y lógica compleja.
-- Uso del estado global como cache por conveniencia.
-- Componentes con múltiples responsabilidades.
-- Lógica de negocio duplicada en distintos lugares.
+Algunos olores que indican problemas estructurales son carpetas gigantes de componentes sin criterio, hooks que mezclan llamadas a API, estado global y lógica compleja, uso del estado global como cache por conveniencia, componentes con múltiples responsabilidades o lógica de negocio duplicada en distintos lugares.
 
 Estos problemas no aparecen de golpe. Emergen cuando no existen convenciones explícitas o cuando se dejan de respetar.
 

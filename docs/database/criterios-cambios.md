@@ -6,7 +6,7 @@ title: Criterios para cambios en modelos de datos
 
 # Criterios para cambios en modelos de datos
 
-## 🎯 Objetivo
+## Objetivo
 
 Este documento define criterios técnicos para evaluar cambios en el modelo de datos antes de implementarlos.
 
@@ -19,7 +19,7 @@ El objetivo es:
 
 Un cambio en datos rara vez es local; casi siempre es transversal.
 
-## 🧠 El modelo de datos como contrato
+## El modelo de datos como contrato
 
 El modelo de datos actúa como:
 
@@ -30,11 +30,11 @@ El modelo de datos actúa como:
 
 Cambiarlo sin análisis es equivalente a cambiar una API pública sin versión.
 
-## 🧩 Dimensiones de evaluación de un cambio
+## Dimensiones de evaluación de un cambio
 
 Antes de aprobar un cambio en el modelo de datos, se deben evaluar varias dimensiones.
 
-### 1️⃣ Impacto funcional
+### 1. Impacto funcional
 
 **Preguntas clave:**
 
@@ -44,7 +44,7 @@ Antes de aprobar un cambio en el modelo de datos, se deben evaluar varias dimens
 
 Los datos casi nunca son usados solo donde creemos.
 
-### 2️⃣ Compatibilidad hacia atrás
+### 2. Compatibilidad hacia atrás
 
 **Preguntas clave:**
 
@@ -54,7 +54,7 @@ Los datos casi nunca son usados solo donde creemos.
 
 La compatibilidad es una herramienta de despliegue seguro.
 
-### 3️⃣ Impacto en rendimiento
+### 3. Impacto en rendimiento
 
 **Preguntas clave:**
 
@@ -64,7 +64,7 @@ La compatibilidad es una herramienta de despliegue seguro.
 
 Un cambio inocente en estructura puede ser catastrófico en ejecución.
 
-### 4️⃣ Consistencia e integridad
+### 4. Consistencia e integridad
 
 **Preguntas clave:**
 
@@ -74,7 +74,7 @@ Un cambio inocente en estructura puede ser catastrófico en ejecución.
 
 La base de datos no debe permitir estados imposibles del dominio.
 
-### 5️⃣ Impacto operativo
+### 5. Impacto operativo
 
 **Preguntas clave:**
 
@@ -84,7 +84,7 @@ La base de datos no debe permitir estados imposibles del dominio.
 
 Un buen modelo también es operable.
 
-## ⚖️ Evaluar costo vs valor
+## Evaluar costo vs valor
 
 No todos los cambios valen lo que cuestan.
 
@@ -96,7 +96,7 @@ Un cambio debe justificarse por:
 
 Cambiar por comodidad inmediata suele salir caro.
 
-## ⚠️ Antipatrones comunes
+## Antipatrones comunes
 
 - Cambios “rápidos” sin análisis
 - Columnas genéricas sin semántica
@@ -105,7 +105,7 @@ Cambiar por comodidad inmediata suele salir caro.
 
 El modelo de datos refleja la madurez del sistema.
 
-## 🧠 Cierre conceptual
+## Cierre conceptual
 
 El modelo de datos no se refactoriza con la misma facilidad que el código.
 Por eso, cada cambio debe ser consciente, evaluado y justificado.
