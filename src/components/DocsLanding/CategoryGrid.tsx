@@ -47,11 +47,11 @@ export function CategoryGrid() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => (
-            <Link key={category.title} to={category.to} className="group relative flex flex-col p-6 rounded-lg border border-border bg-card hover:bg-accent transition-all duration-200 no-underline">
-              <div className="mb-4 text-primary group-hover:text-primary transition-colors">
+            <Link key={category.title} to={category.to} className="group relative flex flex-col p-6 rounded-lg border border-border bg-card hover:bg-accent/50 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 no-underline">
+              <div className="mb-4 text-primary group-hover:text-primary transition-colors group-hover:drop-shadow-[0_0_8px_rgba(0,126,249,0.5)]">
                 <category.icon size={24} />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:underline">{category.title}</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{category.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{category.description}</p>
             </Link>
           ))}

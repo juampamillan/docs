@@ -21,26 +21,26 @@
   --ifm-navbar-padding-horizontal: 1.5rem;
   --ifm-spacing-horizontal: 1.5rem;
   
-  /* Shadcn Light Theme (Zinc) */
+  /* Shadcn Light Theme (Blue/Zinc) */
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
   --card-foreground: 240 10% 3.9%;
   --popover: 0 0% 100%;
   --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
+  --primary: 210 100% 49%;
+  --primary-foreground: 0 0% 100%;
   --secondary: 240 4.8% 95.9%;
   --secondary-foreground: 240 5.9% 10%;
   --muted: 240 4.8% 95.9%;
   --muted-foreground: 240 3.8% 46.1%;
   --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
+  --accent-foreground: 210 100% 49%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%;
-  --ring: 240 10% 3.9%;
+  --ring: 210 100% 49%;
   --radius: 0.5rem;
 
   /* Docusaurus Mappings to Shadcn Variables */
@@ -69,36 +69,36 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.05);
 }
 
-/* Shadcn Dark Theme (Zinc) */
+/* Shadcn Dark Theme (Blue/Night) */
 [data-theme='dark'] {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
+  --background: 222 84% 5%;
+  --foreground: 210 40% 98%;
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 100% 49%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 217 33% 17%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217 33% 17%;
+  --muted-foreground: 215 20% 65%;
+  --accent: 217 33% 17%;
+  --accent-foreground: 210 40% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+  --ring: 210 100% 49%;
 
   /* Docusaurus Mappings Dark */
   --ifm-color-primary: hsl(var(--primary));
-  --ifm-color-primary-dark: hsl(0 0% 90%);
-  --ifm-color-primary-darker: hsl(0 0% 85%);
-  --ifm-color-primary-darkest: hsl(0 0% 75%);
-  --ifm-color-primary-light: hsl(0 0% 90%);
-  --ifm-color-primary-lighter: hsl(0 0% 95%);
-  --ifm-color-primary-lightest: hsl(0 0% 98%);
+  --ifm-color-primary-dark: hsl(210 100% 40%);
+  --ifm-color-primary-darker: hsl(210 100% 35%);
+  --ifm-color-primary-darkest: hsl(210 100% 30%);
+  --ifm-color-primary-light: hsl(210 100% 55%);
+  --ifm-color-primary-lighter: hsl(210 100% 60%);
+  --ifm-color-primary-lightest: hsl(210 100% 65%);
 
   --ifm-background-color: hsl(var(--background));
   --ifm-navbar-background-color: hsl(var(--background));
@@ -204,7 +204,7 @@ article header h1 {
 
 /* Typography Overrides */
 h1, h2, h3, h4, h5, h6 {
-  @apply scroll-m-20 tracking-tight text-primary;
+  @apply scroll-m-20 tracking-tight;
 }
 h2 {
   @apply border-b pb-2 text-3xl font-semibold transition-colors first:mt-0;
@@ -265,4 +265,30 @@ code {
 .footer__link-item {
   @apply text-muted-foreground hover:text-primary transition-colors;
   text-decoration: none !important;
+}
+
+/* Neon Effects & Deep Blue Titles */
+.text-primary-deep {
+  color: hsl(215 100% 30%) !important;
+}
+[data-theme='dark'] .text-primary-deep {
+  color: hsl(var(--primary)) !important;
+}
+
+.neon-text {
+  /* No strong glow in light mode */
+}
+[data-theme='dark'] .neon-text {
+  text-shadow: 0 0 10px rgba(0, 126, 249, 0.5), 0 0 20px rgba(0, 126, 249, 0.3);
+}
+
+.neon-box {
+  border-color: hsl(var(--border));
+}
+[data-theme='dark'] .neon-box {
+  box-shadow: 0 0 15px rgba(0, 126, 249, 0.15);
+  border-color: hsl(var(--primary));
+}
+[data-theme='dark'] .neon-box:hover {
+  box-shadow: 0 0 25px rgba(0, 126, 249, 0.25);
 }

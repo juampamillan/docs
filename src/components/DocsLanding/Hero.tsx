@@ -5,13 +5,13 @@ export function Hero() {
   return (
     <section className="py-24 px-6 md:px-0">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-primary mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000">Documentación Técnica</h1>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-primary-deep mb-6 animate-in fade-in slide-in-from-bottom-4 duration-1000 neon-text">Documentación Técnica</h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
           Buenas prácticas, manuales de arquitectura y guías detalladas para desarrolladores. Construido con precisión y claridad.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300">
           <Link
-            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
             to="/docs/intro"
           >
             Comenzar
