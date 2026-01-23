@@ -33,6 +33,12 @@ const categories = [
     to: "/docs/devops/intro",
     icon: Terminal,
   },
+  {
+    title: "Gobernanza",
+    description: "Estándares, Developer Experience (DX) y gestión de la evolución del software.",
+    to: "/docs/gobernanza/intro",
+    icon: Settings,
+  },
 ];
 
 export function CategoryGrid() {
