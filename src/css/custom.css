@@ -198,6 +198,11 @@
 .container {
   /* Constrain width for readability if needed, typically Docusaurus handles this well */
 }
+
+/* Fix alignment of doc content with sidebars */
+main .container {
+  padding-top: 0 !important;
+}
 article header h1 {
   @apply scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl mb-6;
 }
@@ -255,7 +260,7 @@ code {
 /* Footer */
 .footer {
   border-top: 1px solid hsl(var(--border));
-  background-color: transparent;
+  background-color: hsl(var(--background));
   padding: 2rem 0;
   @apply text-sm text-muted-foreground;
 }
@@ -291,4 +296,14 @@ code {
 }
 [data-theme='dark'] .neon-box:hover {
   box-shadow: 0 0 25px rgba(0, 126, 249, 0.25);
+}
+
+/* Force CategoryGrid cards to be transparent in dark mode */
+[data-theme='dark'] .card-transparent-dark {
+  background-color: transparent;
+  border-color: transparent;
+}
+[data-theme='dark'] .card-transparent-dark:hover {
+  background-color: hsl(var(--card));
+  border-color: hsl(var(--primary) / 0.5);
 }
