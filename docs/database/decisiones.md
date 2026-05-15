@@ -1,6 +1,6 @@
 ---
 sidebar_position: 7
-sidebar_label: ADR de Datos
+sidebar_label: Decisiones de Datos
 title: Registro de decisiones de datos (ADR de datos)
 ---
 

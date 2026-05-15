@@ -23,13 +23,13 @@ Las guías aquí documentadas parten de tres convicciones:
 
 | Sección | Qué encontrarás |
 |---|---|
-| **Arquitectura** | Principios de diseño, patrones, NFRs, ADRs |
-| **Backend** | APIs REST, Clean Architecture, testing, convenciones |
-| **Frontend** | Microfrontends, state management, performance, testing |
-| **DevOps** | Git, CI/CD, contenedores, IaC, cloud deployment |
-| **Database** | Modelado, migraciones, permisos, convenciones SQL |
-| **Seguridad** | OWASP, autenticación, secrets, API security |
-| **Gobernanza** | Code review, onboarding, deuda técnica, incident management |
+| **Arquitectura** | Principios de diseño, patrones, NFRs, ADRs, Event-Driven Architecture, Seguridad por Diseño, Observabilidad |
+| **Backend** | APIs REST, Clean Architecture, testing, convenciones, Concurrencia y Async, Manejo de Errores |
+| **Frontend** | Microfrontends, state management, performance, testing, Accesibilidad, Design System |
+| **DevOps** | Git, CI/CD, contenedores, IaC, cloud deployment, FinOps, Incident Management |
+| **Database** | Modelado, migraciones, permisos, convenciones SQL, Caching con Redis, Patrones NoSQL |
+| **Seguridad** | OWASP, autenticación, secrets, API security, Zero Trust |
+| **Gobernanza** | Code review, onboarding, deuda técnica, incident management, Documentación, Feature Flags |
 
 :::tip ¿Por dónde empezar?
 Si llegas por primera vez, comienza por **[Arquitectura](/docs/arquitectura/intro)**

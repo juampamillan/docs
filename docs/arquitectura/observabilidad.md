@@ -1,7 +1,7 @@
 ---
 title: Requisitos Mínimos de Observabilidad
 sidebar_label: Observabilidad
-sidebar_position: 6
+sidebar_position: 9
 ---
 
 # Requisitos Mínimos de Observabilidad
