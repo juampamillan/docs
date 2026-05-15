@@ -1,190 +1,89 @@
 ---
-title: Requisitos Mínimos de Observabilidad
+title: Observabilidad
 sidebar_label: Observabilidad
 sidebar_position: 9
 ---
 
-# Requisitos Mínimos de Observabilidad
-
-## Propósito del documento
-
-Este documento describe los requisitos mínimos de observabilidad que debería cumplir cualquier sistema que opere en producción. Su objetivo es servir como referencia técnica para comprender qué información es necesario exponer para poder operar software con confianza, detectar problemas de forma temprana y diagnosticar fallos sin depender de suposiciones o conocimiento implícito.
-
-La observabilidad no se presenta aquí como una mejora opcional ni como una preocupación avanzada reservada a sistemas “grandes”. Es un requisito operativo básico para cualquier sistema que se espera que funcione de manera confiable a lo largo del tiempo.
-
-## Qué es observabilidad
-
-La observabilidad es la capacidad de entender qué está ocurriendo dentro de un sistema a partir de la información que este expone externamente.
-
-No se trata solo de saber si el sistema está “arriba” o “abajo”, sino de poder responder preguntas como:
-
-- ¿Está funcionando como se espera?
-- ¿Dónde está fallando?
-- ¿Por qué está fallando?
-- ¿Desde cuándo ocurre el problema?
-
-Un sistema observable permite responder estas preguntas sin modificar el código ni desplegar cambios de emergencia.
-
-## Observabilidad vs monitoreo
-
-Aunque suelen usarse como sinónimos, observabilidad y monitoreo no son lo mismo.
-
-- El monitoreo responde a preguntas conocidas: métricas predefinidas, alertas esperadas, umbrales configurados.
-- La observabilidad permite investigar lo desconocido: comportamientos emergentes, fallos nuevos, interacciones inesperadas.
-
-El monitoreo es un subconjunto de la observabilidad. Un sistema puede estar monitoreado sin ser verdaderamente observable.
-
-## Los tres pilares de la observabilidad
-
-La observabilidad moderna se apoya en tres tipos fundamentales de señales: logs, métricas y trazas. Ninguna por sí sola es suficiente.
-
-### Logs
-
-Los logs son registros estructurados de eventos que ocurren dentro del sistema.
-
-Un sistema mínimamente observable debe emitir logs que:
-
-- Sean legibles y estructurados.
-- Incluyan contexto relevante (identificadores, estados, errores).
-- Permitan reconstruir qué ocurrió antes, durante y después de un fallo.
-
-Los logs no deben ser solo mensajes de texto arbitrarios; deben contar una historia coherente.
-
-### Métricas
-
-Las métricas son mediciones numéricas agregadas a lo largo del tiempo. Permiten observar tendencias, patrones y anomalías.
-
-Ejemplos comunes incluyen:
-
-- Tiempos de respuesta.
-- Tasas de error.
-- Uso de recursos.
-- Cantidad de solicitudes procesadas.
-
-Las métricas permiten responder rápidamente si algo está fuera de lo normal, incluso antes de que un usuario lo reporte.
-
-### Trazas
-
-Las trazas permiten seguir una solicitud a través de múltiples componentes o servicios.
-
-Son especialmente importantes en sistemas distribuidos, donde una sola acción del usuario puede atravesar varias capas.
-
-Una traza mínima debe permitir:
-
-- Identificar el inicio y fin de una solicitud.
-- Conocer qué componentes participaron.
-- Medir tiempos parciales.
-- Detectar cuellos de botella.
-
-Sin trazas, los sistemas distribuidos se vuelven opacos.
-
-## Requisitos mínimos de logging
-
-Para que los logs sean útiles, deben cumplir ciertos requisitos básicos.
-
-- Los logs deben ser estructurados, idealmente en formatos que faciliten búsqueda y análisis automático.
-- Deben existir niveles claros de severidad (información, advertencia, error) con criterios coherentes de uso.
-- Los errores deben incluir contexto suficiente para entender el fallo sin necesidad de reproducirlo localmente.
-- Los logs no deben exponer información sensible ni depender del entorno local para ser interpretados.
-
-Un exceso de logs irrelevantes es tan problemático como la ausencia de logs.
-
-## Requisitos mínimos de métricas
-
-Las métricas mínimas deben permitir evaluar la salud general del sistema.
-
-Al menos debería ser posible observar:
-
-- Latencia.
-- Tasa de errores.
-- Volumen de tráfico.
-- Saturación de recursos críticos.
-
-Estas métricas deben recolectarse de forma continua y ser accesibles sin fricción durante un incidente.
-
-Las métricas no deben definirse solo cuando ocurre un problema; deben existir antes.
-
-## Requisitos mínimos de trazabilidad
-
-Un sistema mínimamente observable debe permitir correlacionar eventos.
-
-Esto implica:
-
-- Identificadores de correlación consistentes.
-- Propagación de contexto entre componentes.
-- Capacidad de unir logs, métricas y trazas.
-
-Sin correlación, cada señal vive aislada y el diagnóstico se vuelve lento y especulativo.
-
-## Observabilidad y errores
-
-Un error sin observabilidad es solo un síntoma.
-
-Cuando ocurre un fallo, el sistema debería permitir responder rápidamente:
-
-- Qué falló.
-- Dónde falló.
-- A quién afectó.
-- Desde cuándo ocurre.
-- Qué cambió antes del fallo.
-
-Si estas preguntas no pueden responderse con la información disponible, la observabilidad es insuficiente.
-
-## Observabilidad como diseño, no como parche
-
-La observabilidad no debe añadirse después de que el sistema está en producción. Debe considerarse desde el diseño.
-
-Esto implica:
-
-- Pensar qué será difícil de diagnosticar.
-- Definir qué señales se necesitarán.
-- Evitar depender de logs improvisados.
-
-La observabilidad es una forma de empatía con el futuro: con quien operará el sistema bajo presión.
-
-## Antipatrones comunes de observabilidad
-
-Algunos errores frecuentes incluyen:
-
-- Confiar solo en logs.
-- Generar logs no estructurados.
-- Tener métricas sin contexto.
-- No correlacionar señales.
-- Descubrir la falta de observabilidad durante un incidente.
-
-Estos antipatrones suelen aparecer cuando la observabilidad se trata como un extra opcional.
-
-## Observabilidad y aprendizaje
-
-Un sistema observable no solo permite reaccionar ante fallos; también permite aprender.
-
-Permite:
-
-- Entender comportamientos reales de uso.
-- Detectar degradaciones progresivas.
-- Validar suposiciones técnicas.
-- Mejorar decisiones futuras.
-
-La observabilidad convierte la operación en una fuente continua de feedback.
-
-## Evolución de la observabilidad
-
-Los requisitos mínimos descritos aquí son solo un punto de partida.
-
-Con el tiempo, pueden incorporarse:
-
-- Alertas más sofisticadas.
-- Dashboards especializados.
-- Análisis predictivo.
-- Automatización de respuestas.
-
-Lo importante es que la base exista y sea sólida.
-
-## Cierre
-
-La observabilidad no es una herramienta ni un dashboard; es una capacidad del sistema.
-
-Un sistema que no puede explicarse a sí mismo es un sistema frágil.
-Uno que expone señales claras puede fallar, pero puede recuperarse con rapidez y aprender de ello.
-
-Como referencia técnica, estos requisitos mínimos buscan establecer un marco claro para construir sistemas que no solo funcionen, sino que puedan entenderse cuando dejan de hacerlo.
+# Observabilidad
+
+La observabilidad es la capacidad de entender qué está ocurriendo dentro de un sistema a partir de la información que este expone externamente. Es fundamental para operar software con confianza y diagnosticar fallos.
+
+## Los Tres Pilares de la Observabilidad
+
+| Pilar | Qué es | Cuándo usarlo |
+| :--- | :--- | :--- |
+| **Logs** | Registros estructurados de eventos ocurridos. | Para investigar un error específico, entender el "por qué" y el contexto detallado. |
+| **Métricas** | Mediciones numéricas agregadas a lo largo del tiempo. | Para monitorear la salud del sistema, configurar alertas, observar tendencias de rendimiento o errores. |
+| **Trazas (Traces)** | El viaje de una solicitud a través de múltiples servicios. | Para diagnosticar cuellos de botella de rendimiento y entender dependencias en sistemas distribuidos. |
+
+## OpenTelemetry como Estándar
+
+Se recomienda utilizar **OpenTelemetry (OTel)** como estándar de instrumentación. OpenTelemetry proporciona APIs y SDKs agnósticos al proveedor para recolectar logs, métricas y trazas, evitando el vendor lock-in.
+
+### Ejemplo de Instrumentación de un Span (Python - FastAPI)
+
+```python
+from opentelemetry import trace
+
+tracer = trace.get_tracer(__name__)
+
+async def procesar_pago(pago_id: str):
+    with tracer.start_as_current_span("procesar_pago_interno") as span:
+        span.set_attribute("pago.id", pago_id)
+        try:
+            resultado = await llamar_api_externa()
+            span.set_attribute("pago.estado", "exito")
+            return resultado
+        except Exception as e:
+            span.record_exception(e)
+            span.set_status(trace.Status(trace.StatusCode.ERROR))
+            raise
+```
+
+### Ejemplo de Instrumentación de un Span (TypeScript - Node.js)
+
+```typescript
+import { trace, SpanStatusCode } from "@opentelemetry/api";
+
+const tracer = trace.getTracer("pago-service");
+
+async function procesarPago(pagoId: string) {
+  return tracer.startActiveSpan("procesar_pago_interno", async (span) => {
+    span.setAttribute("pago.id", pagoId);
+    try {
+      const resultado = await llamarApiExterna();
+      span.setAttribute("pago.estado", "exito");
+      return resultado;
+    } catch (error) {
+      span.recordException(error);
+      span.setStatus({ code: SpanStatusCode.ERROR });
+      throw error;
+    } finally {
+      span.end();
+    }
+  });
+}
+```
+
+## Tabla Comparativa de Herramientas
+
+| Herramienta | Fortaleza | Casos de Uso |
+| :--- | :--- | :--- |
+| **Datadog** | Solución "todo en uno" de primer nivel, excelente correlación OOTB. | Empresas con presupuesto que buscan facilidad de uso y correlación profunda automática. |
+| **Grafana Stack (LGTM)** | Open Source, altamente personalizable (Loki, Grafana, Tempo, Mimir). | Equipos que prefieren infraestructura self-hosted o gestionada pero basada en estándares abiertos. |
+| **Google Cloud Operations** | Integrado de forma nativa en GCP. | Plataformas 100% basadas en Google Cloud que buscan simplicidad. |
+| **New Relic** | Fuerte en APM (Application Performance Monitoring). | Sistemas complejos donde el rendimiento del código es la principal preocupación. |
+
+## SLI, SLO y SLA
+
+- **SLI (Service Level Indicator):** Una medida cuantitativa real del nivel de un servicio. (Ej. "El 99.5% de las peticiones en los últimos 5 minutos respondieron en menos de 200ms").
+- **SLO (Service Level Objective):** Un valor objetivo o rango de valores para un nivel de servicio, medido por un SLI. Es un acuerdo interno. (Ej. "Nuestro objetivo es 99.9% de éxito en las respuestas").
+- **SLA (Service Level Agreement):** Un contrato explícito o implícito con los usuarios que incluye consecuencias (generalmente financieras) si no se cumple el SLO.
+
+### Error Budgets (Presupuesto de Errores)
+
+El Error Budget es la diferencia entre el 100% de fiabilidad y el SLO acordado. Si el SLO es 99.9%, el Error Budget es 0.1%.
+
+:::info Cultura del Error Budget
+El presupuesto de errores se utiliza como una herramienta de toma de decisiones. Si el presupuesto se agota, el equipo debe detener el lanzamiento de nuevas features y enfocarse exclusivamente en estabilización técnica hasta que el presupuesto se recupere.
+:::
