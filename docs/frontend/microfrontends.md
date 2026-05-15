@@ -8,7 +8,7 @@ tags: [frontend, microfrontends]
 
 # Arquitectura de Microfrontends
 
-Adoptamos una arquitectura de Microfrontends basada en **Module Federation** para permitir el desarrollo y despliegue independiente de diferentes módulos funcionales.
+Se adopta una arquitectura de Microfrontends basada en **Module Federation** para permitir el desarrollo y despliegue independiente de diferentes módulos funcionales.
 
 ---
 
@@ -50,7 +50,7 @@ El Shell expone un contexto global en `window` para datos compartidos (ej. token
 
 ### Eventos Personalizados (CustomEvents)
 
-Utilizamos el bus de eventos del navegador para comunicación asíncrona:
+Se utiliza el bus de eventos del navegador para comunicación asíncrona:
 
 - El Shell dispara un evento `location-changed`.
 - Los Microfrontends escuchan y actualizan su estado local.

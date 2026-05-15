@@ -11,7 +11,7 @@ Esta sección describe los fundamentos arquitectónicos, patrones de diseño y e
 
 ## Pilares Arquitectónicos
 
-Nuestra arquitectura se basa en cuatro pilares fundamentales:
+Esta arquitectura se basa en cuatro pilares fundamentales:
 
 1.  **Desacoplamiento**: Uso de microservicios y comunicación orientada a eventos.
 2.  **Resiliencia**: Diseño para fallos mediante redundancia y patrones de estabilidad.
