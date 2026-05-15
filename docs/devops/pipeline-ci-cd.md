@@ -1,6 +1,6 @@
 ---
 title: Pipeline Estándar de CI/CD
-sidebar_label: Pipeline Estándar
+sidebar_label: CI/CD — Visión General
 sidebar_position: 5
 ---
 
