@@ -22,7 +22,7 @@ Esta guía describe el modelo de permisos para bases de datos PostgreSQL, siguie
 
 ## Estructura de Roles
 
-Se utiliza un modelo de roles jerárquicos donde los usuarios individuales heredan permisos de roles de equipo.
+Utilizamos un modelo de roles jerárquicos donde los usuarios individuales heredan permisos de roles de equipo.
 
 ```
 postgres (superadmin)

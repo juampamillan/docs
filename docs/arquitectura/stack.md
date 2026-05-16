@@ -7,7 +7,7 @@ tags: [arquitectura]
 
 # Stack Tecnológico en Google Cloud Platform
 
-Esta arquitectura es **Cloud Native** y aprovecha los servicios gestionados de GCP para minimizar la carga operativa y maximizar la fiabilidad.
+Nuestra arquitectura es **Cloud Native** y aprovecha los servicios gestionados de GCP para minimizar la carga operativa y maximizar la fiabilidad.
 
 ---
 
@@ -92,12 +92,6 @@ Monitoreo centralizado del estado de la plataforma.
 | **Mensajería**    | Google Cloud Pub/Sub            |
 | **API Gateway**   | Google Cloud Apigee             |
 | **Seguridad**     | Secret Manager, IAM, OAuth2/JWT |
-
-:::note Otras opciones
-Las tecnologías aquí descritas son una combinación probada en producción.
-Alternativas válidas: Node.js/NestJS o Go/Gin para backend; AWS o Azure para cloud;
-MySQL o MongoDB según el caso de uso.
-:::
 
 ---
 

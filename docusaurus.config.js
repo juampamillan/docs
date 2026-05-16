@@ -120,12 +120,6 @@ const config = {
           },
           {
             type: 'docSidebar',
-            sidebarId: 'seguridadSidebar',
-            position: 'right',
-            label: 'Seguridad',
-          },
-          {
-            type: 'docSidebar',
             sidebarId: 'gobernanzaSidebar',
             position: 'right',
             label: 'Gobernanza',

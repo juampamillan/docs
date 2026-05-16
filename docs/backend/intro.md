@@ -17,12 +17,6 @@ Esta sección documenta los estándares y guías para el desarrollo de microserv
 - **Validación**: Pydantic
 - **Base de Datos**: PostgreSQL (Cloud SQL)
 
-:::note Agnóstico de lenguaje
-Los principios de Clean Architecture de esta sección se ilustran con Python/FastAPI,
-pero aplican igualmente a TypeScript/NestJS, Go, Java/Spring Boot o cualquier lenguaje
-orientado a objetos.
-:::
-
 ---
 
 ## Clean Architecture

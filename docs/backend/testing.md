@@ -1,102 +1,99 @@
 ---
 sidebar_position: 7
-sidebar_label: Estrategia de Testing
+sidebar_label: Testing
+title: Reglas mínimas de testing backend
 ---
 
-# Estrategia de Testing
+# Reglas mínimas de testing backend
 
-El testing automatizado no es un lujo, es una validación continua que previene regresiones. La estrategia recomendada se basa en la pirámide de testing.
+## Objetivo
 
-## La Pirámide de Testing
+Este documento define reglas mínimas de testing para backend, estableciendo expectativas claras sobre qué tipos de pruebas deben existir y qué riesgos deben cubrirse.
 
-- **Unit Tests (Base ancha):** Validan la lógica de negocio aislada. Son rápidos y abundantes.
-- **Integration Tests (Medio):** Validan la interacción entre el código y sistemas reales (base de datos, caché). Son más lentos.
-- **E2E Tests (Punta):** Validan flujos críticos completos simulando un cliente. Son frágiles y lentos. Se reservan para el "happy path" principal.
+El objetivo no es cobertura absoluta, sino:
 
-## Reglas de Mocking
+- Reducir regresiones
+- Detectar errores temprano
+- Proteger decisiones críticas
+- Hacer del testing una práctica natural
 
-- **NO mockear:** Base de datos en los tests de integración (usar bases de datos temporales/testcontainers), utilidades simples, validadores de dominio.
-- **SÍ mockear:** Llamadas a APIs de terceros (pasarelas de pago, servicios externos), envío de correos, eventos de mensajería (Pub/Sub).
+Un backend sin tests confía en la suerte.
 
-## Ejemplo: Test Unitario (Pytest + Mock)
+## El rol real del testing
 
-Validación de lógica sin tocar dependencias externas.
+El testing no existe para:
 
-```python
-from unittest.mock import Mock
-import pytest
+- Complacer métricas
+- Satisfacer herramientas
+- Dar falsa seguridad
 
-def procesar_orden(orden_id, repo):
-    orden = repo.obtener(orden_id)
-    if not orden:
-        raise ValueError("Orden no encontrada")
-    if orden.estado != "NUEVA":
-        raise ValueError("Estado inválido")
-    orden.estado = "PROCESADA"
-    repo.guardar(orden)
-    return orden
+Existe para reducir incertidumbre.
 
-def test_procesar_orden_exitosa():
-    # Arrange
-    mock_repo = Mock()
-    mock_repo.obtener.return_value = Mock(estado="NUEVA")
+Cada test responde implícitamente:
+¿Qué error estoy tratando de evitar?
 
-    # Act
-    resultado = procesar_orden("123", mock_repo)
+## Niveles mínimos de testing
 
-    # Assert
-    assert resultado.estado == "PROCESADA"
-    mock_repo.guardar.assert_called_once()
-```
+### 1. Tests unitarios
 
-## Ejemplo: Test de Integración (FastAPI + TestClient + DB)
+Protegen:
+- Lógica de negocio
+- Reglas del dominio
+- Casos límite
 
-Prueba un endpoint HTTP completo con base de datos real.
+Deben ser:
+- Rápidos
+- Deterministas
+- Aislados
 
-```python
-from fastapi.testclient import TestClient
-from mi_app.main import app
+Si la lógica no se puede testear, probablemente está mal diseñada.
 
-client = TestClient(app)
+### 2. Tests de integración
 
-def test_crear_usuario(db_session_test):
-    # db_session_test es un fixture que provee una DB vacía
-    response = client.post(
-        "/usuarios/",
-        json={"email": "test@example.com", "nombre": "Test"}
-    )
+Protegen:
+- Integración con base de datos
+- Configuración real
+- Contratos internos
 
-    assert response.status_code == 201
-    data = response.json()
-    assert data["email"] == "test@example.com"
-    assert "id" in data
-```
+Son más lentos, pero descubren errores reales.
 
-## Ejemplo: Test E2E Básico (Playwright)
+### 3. Tests de contrato
 
-Valida un flujo crítico desde la perspectiva del usuario.
+Protegen:
+- APIs públicas
+- Expectativas de consumidores
+- Cambios incompatibles
 
-```typescript
-import { test, expect } from '@playwright/test';
+Aquí se valida que el contrato prometido siga cumpliéndose.
 
-test('flujo de login exitoso', async ({ page }) => {
-  await page.goto('https://miapp.com/login');
+## Cobertura como consecuencia, no como objetivo
 
-  await page.fill('input[name="email"]', 'usuario@test.com');
-  await page.fill('input[name="password"]', 'secreta123');
-  await page.click('button[type="submit"]');
+Una cobertura alta no garantiza calidad.
+Una cobertura baja en puntos críticos sí es un riesgo.
 
-  // Validar que entramos al dashboard
-  await expect(page).toHaveURL(/.*dashboard/);
-  await expect(page.locator('h1')).toContainText('Bienvenido');
-});
-```
+Lo importante es:
 
-## Coverage (Cobertura)
+- Qué se prueba
+- Por qué se prueba
+- Qué riesgo se cubre
 
-:::warning Obsesión por el Coverage
-El objetivo no es alcanzar el 100% de cobertura forzando tests inútiles. El coverage es una métrica para encontrar código *no* testeado, no una prueba de que el código está *bien* testeado.
-:::
+## Antipatrones comunes
 
-- **Umbral recomendado:** Apuntar a un 70-80% general.
-- **Enfoque:** La lógica de dominio y los cálculos críticos deben tener cobertura cercana al 100%. Los controladores simples y DTOs necesitan menos esfuerzo.
+- Tests frágiles
+- Tests que replican implementación
+- Falta total de tests en lógica crítica
+- Confiar solo en tests manuales
+
+Un sistema sin tests obliga a desplegar con miedo.
+
+## Cierre conceptual
+
+El testing backend es una red de seguridad, no una jaula.
+
+Cuando está bien diseñado:
+
+- Permite cambiar sin miedo
+- Detecta errores temprano
+- Protege la estabilidad del sistema
+
+Un backend profesional no pregunta si necesita tests. Pregunta qué riesgos necesita cubrir.
