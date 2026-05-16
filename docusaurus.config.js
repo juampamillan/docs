@@ -60,6 +60,21 @@ const config = {
         },
       };
     },
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["es"],
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: "/docs",
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
+      },
+    ],
   ],
 
   themeConfig:
@@ -102,12 +117,6 @@ const config = {
             sidebarId: 'databaseSidebar',
             position: 'right',
             label: 'Database',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'seguridadSidebar',
-            position: 'right',
-            label: 'Seguridad',
           },
           {
             type: 'docSidebar',

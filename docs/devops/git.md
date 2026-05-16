@@ -13,7 +13,7 @@ Esta guía describe el modelo de branching, las estrategias de merge y las mejor
 
 ## Modelo de Branching (Staging)
 
-Se utiliza un modelo de **staging con Fast-Forward obligatorio** entre ramas de ambiente. Esto garantiza que el código probado en un ambiente sea **exactamente el mismo** que se despliega en el siguiente.
+Utilizamos un modelo de **staging con Fast-Forward obligatorio** entre ramas de ambiente. Esto garantiza que el código probado en un ambiente sea **exactamente el mismo** que se despliega en el siguiente.
 
 ### Estructura de Ramas
 
@@ -48,9 +48,9 @@ feat/...     fix/...   ...      ...   ...
 
 **Ejemplos:**
 
-- `feat/TICKET-84-pantalla-consulta`
-- `fix/TICKET-92-correccion-calculo`
-- `refactor/TICKET-101-mejora-queries`
+- `feat/PROJ-84-pantalla-consulta`
+- `fix/PROJ-92-correccion-calculo`
+- `refactor/PROJ-101-mejora-queries`
 
 **Origen:** Todas las ramas de trabajo **nacen desde `merge`**.
 
@@ -60,7 +60,7 @@ feat/...     fix/...   ...      ...   ...
 
 ### 1. Fast-Forward (Para Staging)
 
-Es la **estrategia recomendada** entre ramas de ambiente (`merge → dev → qa → main`).
+Es la **única estrategia permitida** entre ramas de ambiente (`merge → dev → qa → main`).
 
 ```bash
 git checkout qa
@@ -125,7 +125,7 @@ git checkout merge
 git pull origin merge
 
 # Crear rama desde merge
-git checkout -b feat/TICKET-84-pantalla-consulta
+git checkout -b feat/PROJ-84-pantalla-consulta
 
 # Trabajar y hacer commits
 git commit -m "feat: Crear componente tabla"
@@ -141,7 +141,7 @@ git rebase origin/merge
 
 # Resolver conflictos si los hay, luego:
 git checkout merge
-git merge feat/TICKET-84-pantalla-consulta
+git merge feat/PROJ-84-pantalla-consulta
 git push origin merge
 ```
 

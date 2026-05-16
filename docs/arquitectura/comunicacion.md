@@ -7,13 +7,13 @@ tags: [arquitectura]
 
 # Comunicación entre Servicios
 
-En un sistema distribuido, la forma en que los servicios interactúan determina la resiliencia y el acoplamiento de la plataforma. Se utiliza una combinación de patrones síncronos y asíncronos.
+En un sistema distribuido, la forma en que los servicios interactúan determina la resiliencia y el acoplamiento de la plataforma. Utilizamos una combinación de patrones síncronos y asíncronos.
 
 ---
 
 ## 1. Comunicación Asíncrona (Event-Driven)
 
-Es el mecanismo **predominante** para la integración entre módulos. Se utiliza **Google Cloud Pub/Sub**.
+Es el mecanismo **predominante** para la integración entre módulos. Utilizamos **Google Cloud Pub/Sub**.
 
 ### El Patrón de Eventos
 

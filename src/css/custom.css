@@ -307,3 +307,100 @@ code {
   background-color: hsl(var(--card));
   border-color: hsl(var(--primary) / 0.5);
 }
+
+/* =============================================
+   Search Plugin Overrides (@easyops-cn/docusaurus-search-local)
+   Usamos attribute selectors porque las clases del plugin son CSS Modules hasheadas.
+   ============================================= */
+
+/* Input container en la navbar */
+[class*="searchBox"] {
+  padding: 0 !important;
+}
+
+[class*="searchQueryInput"] {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  color: hsl(var(--foreground)) !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-size: 0.875rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+[class*="searchQueryInput"]:focus {
+  border-color: hsl(var(--primary)) !important;
+  outline: none !important;
+}
+
+[data-theme='dark'] [class*="searchQueryInput"]:focus {
+  box-shadow: 0 0 0 2px rgba(0, 126, 249, 0.2) !important;
+}
+
+/* Dropdown de resultados */
+[class*="searchResultsPopup"],
+[class*="hitWrapper"] {
+  background-color: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Cada resultado */
+[class*="searchResultItem"] {
+  border-bottom: 1px solid hsl(var(--border)) !important;
+  padding: 0.75rem 1rem !important;
+  transition: background-color 0.15s !important;
+}
+
+[class*="searchResultItem"]:hover,
+[class*="searchResultItem"][class*="active"] {
+  background-color: hsl(var(--accent)) !important;
+}
+
+/* Título del resultado */
+[class*="searchResultItemHeading"] {
+  color: hsl(var(--foreground)) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+/* Breadcrumb / path del resultado */
+[class*="searchResultItemPath"],
+[class*="searchResultItemParent"] {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 0.75rem !important;
+}
+
+/* Texto resaltado (match) */
+[class*="suggestion"] mark,
+[class*="searchResultItem"] mark {
+  background-color: transparent !important;
+  color: hsl(var(--primary)) !important;
+  font-weight: 700 !important;
+}
+
+/* Keyboard shortcut badge (⌘K / Ctrl+K) */
+[class*="searchBarShortcutHint"] {
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: calc(var(--radius) - 2px) !important;
+  color: hsl(var(--muted-foreground)) !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  font-size: 0.7rem !important;
+  background: transparent !important;
+}
+
+/* Neon glow en dark mode para el input con foco */
+[data-theme='dark'] [class*="searchQueryInput"]:focus {
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 0 0 0 2px rgba(0, 126, 249, 0.15),
+              0 0 10px rgba(0, 126, 249, 0.1) !important;
+}
+
+/* "Sin resultados" */
+[class*="noResults"] {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 0.875rem !important;
+  text-align: center !important;
+  padding: 2rem !important;
+}

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-sidebar_label: CI/CD — Implementación
+sidebar_label: Pipelines CI/CD
 authors: pablomillansotelo
 tags: [devops]
 ---

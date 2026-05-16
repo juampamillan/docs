@@ -7,13 +7,13 @@ tags: [arquitectura]
 
 # Principios de Diseño Arquitectónico
 
-Esta guía establece los principios fundamentales que rigen el diseño de esta plataforma, asegurando la mantenibilidad, escalabilidad y evolución tecnológica.
+Esta guía establece los principios fundamentales que rigen el diseño de nuestra plataforma, asegurando la mantenibilidad, escalabilidad y evolución tecnológica.
 
 ---
 
 ## 1. Microservicios vs. Monolito
 
-Se adopta una arquitectura de **microservicios** para permitir que diferentes equipos trabajen de forma independiente y escalen componentes específicos según la demanda.
+Adoptamos una arquitectura de **microservicios** para permitir que diferentes equipos trabajen de forma independiente y escalen componentes específicos según la demanda.
 
 ### El Riesgo: El Monolito Distribuido
 
@@ -56,7 +56,7 @@ Ningún servicio puede acceder directamente a la base de datos de otro.
 
 ## 4. Diseño Orientado al Dominio (DDD)
 
-Se utiliza el lenguaje del negocio para nombrar clases, funciones y tablas.
+Utilizamos el lenguaje del negocio para nombrar clases, funciones y tablas.
 
 - **Bounded Contexts**: Identificamos fronteras claras entre módulos para evitar que la lógica se mezcle (ej. el concepto de "Usuario" puede ser distinto en el módulo de Autenticación vs. el módulo de Producción).
 - **Ubiquitous Language**: Desarrolladores y expertos de negocio usan los mismos términos.

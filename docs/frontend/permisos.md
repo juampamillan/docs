@@ -13,7 +13,7 @@ La gestión de permisos es un aspecto crítico que garantiza que los usuarios so
 
 ## 1. Arquitectura de Permisos
 
-Se utiliza un modelo **RBAC (Role-Based Access Control)** gestionado centralmente e implementado de forma distribuida.
+Utilizamos un modelo **RBAC (Role-Based Access Control)** gestionado centralmente e implementado de forma distribuida.
 
 - **Servicio de Permisos**: El Shell carga los permisos del usuario al inicio de la sesión.
 - **Provider de Permisos**: Los microfrontends consumen estos permisos a través de un contexto compartido o del objeto global `window`.
